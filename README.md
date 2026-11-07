@@ -8,12 +8,7 @@ Mobile version of the traditional Ethiopian game Gebeta (v1).
 
 ## Repository layout
 
-| Folder | Purpose | Owner |
-|---|---|---|
-| `engine_python/` | Python game engine, minimax baseline, ML training | Dev A |
-| `app_flutter/` | Flutter app + Dart engine | Dev B / Dev C |
-| `tests/` | Shared `test_cases.json` that BOTH engines must pass | everyone |
-| `docs/` | Rules spec, tech stack and timeline, notes | everyone |
+
 
 ## Golden rule
 The Dart engine and the Python engine must behave identically.
