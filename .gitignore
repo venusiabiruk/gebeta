@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# ML artifacts (large files; share via Drive/Releases, not git)
+*.pt
+*.pth
+runs/
+checkpoints/
+
+# Flutter / Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+*.iml
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
