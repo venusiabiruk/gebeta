@@ -1,0 +1,95 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+# A new push to the same branch cancels the older run.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  python-engine:
+    name: Python engine
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # Engine and tools use the standard library only.
+      - name: Run engine tests (test_cases.json, event_traces.json)
+        run: python engine_python/run_tests.py
+
+  python-ai:
+    name: Python AI
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # torch is for training only, so CI installs numpy and nothing else.
+      - name: Install dependencies
+        run: pip install numpy
+      - name: Run minimax and model parity tests
+        run: python engine_python/run_ai_tests.py
+
+  dart-tests:
+    name: Dart tests
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app_flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter test
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app_flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      # The guide says "no warnings". Drop --no-fatal-infos to be stricter.
+      - run: flutter analyze --no-fatal-infos
+
+  # Crosscheck: Python writes 10,000 random cases and a Dart test replays them.
+  # Turn this on once the generator script and the Dart replay test exist,
+  # and replace the two commands below with the real ones.
+  #
+  # crosscheck:
+  #   name: Crosscheck
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-python@v5
+  #       with:
+  #         python-version: "3.12"
+  #     - uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: stable
+  #         cache: true
+  #     - name: Generate 10,000 random cases in Python
+  #       run: python engine_python/tools/make_cases.py   # add the flags once decided
+  #     - name: Replay them in Dart
+  #       working-directory: app_flutter
+  #       run: |
+  #         flutter pub get
+  #         flutter test test/crosscheck_test.dart
