@@ -1,5 +1,0 @@
-numpy
-pytest
-# add later when training starts:
-# torch
-# tensorboard

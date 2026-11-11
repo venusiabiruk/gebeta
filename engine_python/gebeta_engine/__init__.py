@@ -1,1 +1,0 @@
-"""Gebeta engine package."""
