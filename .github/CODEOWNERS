@@ -1,14 +1,43 @@
-# Contract paths: a change here needs a review from all three people
+# GitHub uses the LAST matching line, so per-person paths come first and the
+# contract paths come last. Contract paths need a review from all three people
 # (see "Changing the contract" and section 7 of the Implementation Guide).
 
-/tests/                              @anansi-sime @venusiabiruk @TsiOnshime
-/docs/                               @anansi-sime @venusiabiruk @TsiOnshime
-/engine_python/gebeta/engine.py      @anansi-sime @venusiabiruk @TsiOnshime
-/app_flutter/lib/engine/             @anansi-sime @venusiabiruk @TsiOnshime
+# Person 1 (anansi-sime): turn engine, board, baseline AI and evaluation
+/engine_python/gebeta/players.py          @anansi-sime
+/engine_python/ai/evaluate.py             @anansi-sime
+/engine_python/ai/check_minimax.py        @anansi-sime
+/engine_python/run_ai_tests.py            @anansi-sime
+/app_flutter/lib/ai/greedy.dart           @anansi-sime
+/app_flutter/lib/ai/minimax.dart          @anansi-sime
+/app_flutter/lib/ui/board/                @anansi-sime
 
-# Per-person paths: fill these in once the team decides who is Person 1, 2 and 3.
-# Example:
-/app_flutter/lib/ui/board/         @anansi-sime
-/app_flutter/lib/ui/screens/       @TsiOnshime
-/app_flutter/lib/services/         @venusiabiruk
-/.github/                          @venusiabiruk
+# Person 2 (TsiOnshime): screens, game controller, training
+/app_flutter/lib/ui/screens/              @TsiOnshime
+/app_flutter/lib/state/                   @TsiOnshime
+/app_flutter/lib/main.dart                @TsiOnshime
+/app_flutter/lib/app.dart                 @TsiOnshime
+/engine_python/ai/make_dataset.py         @TsiOnshime
+/engine_python/ai/model.py                @TsiOnshime
+/engine_python/ai/train.py                @TsiOnshime
+/engine_python/ai/model_player.py         @TsiOnshime
+
+# Person 3 (venusiabiruk): services, AI service and network, export, test runners, CI
+/app_flutter/lib/ai/levels.dart           @venusiabiruk
+/app_flutter/lib/ai/ai_service.dart       @venusiabiruk
+/app_flutter/lib/ai/network.dart          @venusiabiruk
+/app_flutter/lib/services/                @venusiabiruk
+/app_flutter/assets/audio/                @venusiabiruk
+/app_flutter/assets/model/                @venusiabiruk
+/engine_python/ai/export.py               @venusiabiruk
+/engine_python/ai/infer_reference.py      @venusiabiruk
+/engine_python/ai/make_parity_cases.py    @venusiabiruk
+/engine_python/ai/check_model.py          @venusiabiruk
+/engine_python/run_tests.py               @venusiabiruk
+/engine_python/tools/                     @venusiabiruk
+/.github/                                 @venusiabiruk
+
+# Contract paths: all three people (these lines must stay last)
+/tests/                                   @anansi-sime @TsiOnshime @venusiabiruk
+/docs/                                    @anansi-sime @TsiOnshime @venusiabiruk
+/engine_python/gebeta/engine.py           @anansi-sime @TsiOnshime @venusiabiruk
+/app_flutter/lib/engine/                  @anansi-sime @TsiOnshime @venusiabiruk
