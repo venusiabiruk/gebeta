@@ -33,7 +33,7 @@ class GameScreen extends StatelessWidget {
                     icon: const Icon(Icons.arrow_back),
                   ),
                   const Spacer(),
-                  // TODO(U2): Slow / Normal / Fast and Skip animation controls go here.
+                  const _AnimationControls(),
                   const Spacer(),
                   IconButton(
                     tooltip: 'Pause',
@@ -84,6 +84,50 @@ class GameScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+/// Slow / Normal / Fast and Skip animation. Plain widgets for now: the choice
+/// is kept in local state only.
+/// TODO(U2): read and write SettingsStore.animationSpeed (Person 3), and call
+/// BoardViewController.skip() (Person 1) from the Skip button.
+class _AnimationControls extends StatefulWidget {
+  const _AnimationControls();
+
+  @override
+  State<_AnimationControls> createState() => _AnimationControlsState();
+}
+
+class _AnimationControlsState extends State<_AnimationControls> {
+  String _speed = 'normal';
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SegmentedButton<String>(
+          showSelectedIcon: false,
+          style: const ButtonStyle(visualDensity: VisualDensity.compact),
+          segments: const [
+            ButtonSegment(value: 'slow', label: Text('Slow')),
+            ButtonSegment(value: 'normal', label: Text('Normal')),
+            ButtonSegment(value: 'fast', label: Text('Fast')),
+          ],
+          selected: {_speed},
+          onSelectionChanged: (s) => setState(() => _speed = s.first),
+        ),
+        const SizedBox(width: 10),
+        OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            foregroundColor: GebetaColors.cream,
+            side: const BorderSide(color: GebetaColors.gold, width: 2),
+            shape: const StadiumBorder(),
+          ),
+          onPressed: () {},
+          child: const Text('Skip animation'),
+        ),
+      ],
     );
   }
 }

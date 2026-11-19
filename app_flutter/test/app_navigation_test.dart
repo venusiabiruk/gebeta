@@ -25,6 +25,7 @@ void main() {
     await tester.tap(find.text('Next'));
     await tester.pumpAndSettle();
     expect(find.text('Lesson 2 of 5'), findsOneWidget);
+    expect(find.text('Sowing'), findsOneWidget);
     await tester.tap(find.byTooltip('Back'));
     await tester.pumpAndSettle();
 
@@ -42,6 +43,8 @@ void main() {
     await tester.tap(find.text('Play Now'));
     await tester.pumpAndSettle();
     expect(find.text('BoardView goes here (Person 1, U1)'), findsOneWidget);
+    expect(find.text('Slow'), findsOneWidget);
+    expect(find.text('Skip animation'), findsOneWidget);
     await tester.tap(find.byTooltip('Pause'));
     await tester.pumpAndSettle();
     expect(find.text('Paused'), findsOneWidget);
