@@ -1,8 +1,7 @@
 cat > app_flutter/lib/engine/rules.dart <<'EOF'
 import 'game_state.dart';
 
-// Person 2's rules functions. Day-1 stubs: exact signatures from section 3,
-// bodies come in E2-02.
+// Person 2's rules functions. Day-1 stubs: signatures only, bodies come in E2-02.
 
 /// A new game: 12 holes of 4 seeds, both pits 0, turns 0, [firstPlayer] to move.
 GameState newGame({int firstPlayer = 0}) => throw UnimplementedError();
