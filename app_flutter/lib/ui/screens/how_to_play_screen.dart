@@ -96,25 +96,27 @@ class _HowToPlayScreenState extends State<HowToPlayScreen> {
                 child: Row(
                   children: [
                     SizedBox(
-                      width: 270,
+                      width: 300,
                       child: GPanel(
                         padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              lesson.title,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineMedium
-                                  ?.copyWith(color: GebetaColors.gold),
-                            ),
-                            const SizedBox(height: 8),
-                            Text(
-                              lesson.text,
-                              style: const TextStyle(fontSize: 16, height: 1.4),
-                            ),
-                          ],
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                lesson.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineMedium
+                                    ?.copyWith(color: GebetaColors.gold),
+                              ),
+                              const SizedBox(height: 8),
+                              Text(
+                                lesson.text,
+                                style: const TextStyle(fontSize: 16, height: 1.4),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

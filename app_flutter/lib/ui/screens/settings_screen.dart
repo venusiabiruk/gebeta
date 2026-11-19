@@ -32,26 +32,29 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Expanded(
+                                        Expanded(
                       child: GPanel(
-                        child: Column(
-                          children: [
-                            SwitchListTile(
-                              title: const Text('Sound effects'),
-                              value: _sound,
-                              onChanged: (v) => setState(() => _sound = v),
-                            ),
-                            SwitchListTile(
-                              title: const Text('Music'),
-                              value: _music,
-                              onChanged: (v) => setState(() => _music = v),
-                            ),
-                            SwitchListTile(
-                              title: const Text('Haptics'),
-                              value: _haptics,
-                              onChanged: (v) => setState(() => _haptics = v),
-                            ),
-                          ],
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: Column(
+                            children: [
+                              SwitchListTile(
+                                title: const Text('Sound effects'),
+                                value: _sound,
+                                onChanged: (v) => setState(() => _sound = v),
+                              ),
+                              SwitchListTile(
+                                title: const Text('Music'),
+                                value: _music,
+                                onChanged: (v) => setState(() => _music = v),
+                              ),
+                              SwitchListTile(
+                                title: const Text('Haptics'),
+                                value: _haptics,
+                                onChanged: (v) => setState(() => _haptics = v),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
