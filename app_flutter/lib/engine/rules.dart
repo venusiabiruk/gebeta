@@ -1,4 +1,3 @@
-cat > app_flutter/lib/engine/rules.dart <<'EOF'
 import 'game_state.dart';
 
 // Person 2's rules functions. Day-1 stubs: signatures only, bodies come in E2-02.
@@ -17,4 +16,3 @@ List<int> finalPits(GameState state) => throw UnimplementedError();
 
 /// 0 or 1 for the player with the larger final pit, or draw (-1).
 int winner(GameState state) => throw UnimplementedError();
-EOF

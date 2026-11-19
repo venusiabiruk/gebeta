@@ -1,0 +1,56 @@
+Running `(cd /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/; TMPDIR=/var/folders/w9/vx4314y55xb7ntkxnblqyxkr0000gn/T/ PATH=/Users/shimelisgebeyehu/.antigravity-ide/antigravity-ide/bin:/Users/shimelisgebeyehu/.antigravity-ide/antigravity-ide/bin:/Users/shimelisgebeyehu/.antigravity-ide/antigravity-ide/bin:/Users/shimelisgebeyehu/.codeium/windsurf/bin:/Users/shimelisgebeyehu/.antigravity-ide/antigravity-ide/bin:/Users/shimelisgebeyehu/Documents/apache-maven-3.9.16/bin:/Users/shimelisgebeyehu/.local/share/solana/install/active_release/bin:/Users/shimelisgebeyehu/.local/share/solana/install/active_release/bin:/Users/shimelisgebeyehu/.nvm/versions/node/v23.11.0/bin:/Users/shimelisgebeyehu/.local/share/solana/install/active_release/bin:/opt/homebrew/share/flutter/bin/cache/dart-sdk/bin/:/Users/shimelisgebeyehu/.local/share/solana/install/active_release/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.12/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/local/bin:/opt/local/spin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/pkg/env/global/bin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/go/bin:/Users/shimelisgebeyehu/.cargo/bin:/opt/homebrew/share/flutter/bin/cache/dart-sdk/bin/:/Users/shimelisgebeyehu/.vscode/extensions/ms-python.debugpy-2026.6.0-darwin-arm64/bundled/scripts/noConfigScripts:/Users/shimelisgebeyehu/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand:/Applications/Visual Studio Code.app/Contents/Resources/app/bin/copilot-shim:/Users/shimelisgebeyehu/Library/Application Support/JetBrains/Toolbox/scripts:/Applications/Postgres.app/Contents/Versions/18/bin:/Users/shimelisgebeyehu/Desktop/wuuu/flutter/bin:/Users/shimelisgebeyehu/development/flutter/bin:/Users/shimelisgebeyehu/Desktop/flutter/bin:/Users/shimelisgebeyehu/Desktop/flutter/bin HOME=/Users/shimelisgebeyehu /opt/homebrew/share/flutter/bin/cache/dart-sdk/bin/dart --packages=/Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/package_config.json /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/objective_c/de310349bc/hook.dill --config=/Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/objective_c/de310349bc/input.json )`.
+INFO: 2026-11-19 12:24:31.879524: Using compiler /Library/Developer/CommandLineTools/usr/bin/clang from BuildInput.cCompiler.cc.
+
+INFO: 2026-11-19 12:24:31.884419: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/include/dart_api_dl.c -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-11-19 12:24:31.885865: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/objective_c.c -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.c.o
+
+INFO: 2026-11-19 12:24:31.886080: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/input_stream_adapter.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/input_stream_adapter.m.o
+
+INFO: 2026-11-19 12:24:31.886238: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/objective_c.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.m.o
+
+INFO: 2026-11-19 12:24:31.886381: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/observer.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/observer.m.o
+
+INFO: 2026-11-19 12:24:31.886525: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/ns_number.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/ns_number.m.o
+
+INFO: 2026-11-19 12:24:31.886662: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/protocol.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/protocol.m.o
+
+INFO: 2026-11-19 12:24:31.886807: Running: /Library/Developer/CommandLineTools/usr/bin/clang -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -x objective-c -fobjc-arc -c /Users/shimelisgebeyehu/.pub-cache/hosted/pub.dev/objective_c-9.6.4/src/objective_c_bindings_generated.m -fpic -gline-tables-only -I src -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-11-19 12:24:32.145411: 
+INFO: 2026-11-19 12:24:32.145487: 
+INFO: 2026-11-19 12:24:32.145520: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/include/dart_api_dl.c.o
+
+INFO: 2026-11-19 12:24:32.146254: 
+INFO: 2026-11-19 12:24:32.146274: 
+INFO: 2026-11-19 12:24:32.146287: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/observer.m.o
+INFO: 2026-11-19 12:24:32.146359: 
+INFO: 2026-11-19 12:24:32.146370: 
+INFO: 2026-11-19 12:24:32.146381: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.c.o
+
+INFO: 2026-11-19 12:24:32.147416: 
+INFO: 2026-11-19 12:24:32.147436: 
+INFO: 2026-11-19 12:24:32.147448: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/protocol.m.o
+
+INFO: 2026-11-19 12:24:32.414394: 
+INFO: 2026-11-19 12:24:32.414446: 
+INFO: 2026-11-19 12:24:32.414459: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/ns_number.m.o
+
+INFO: 2026-11-19 12:24:32.426041: 
+INFO: 2026-11-19 12:24:32.426084: 
+INFO: 2026-11-19 12:24:32.426097: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.m.o
+
+INFO: 2026-11-19 12:24:32.434965: 
+INFO: 2026-11-19 12:24:32.435010: 
+INFO: 2026-11-19 12:24:32.435023: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/input_stream_adapter.m.o
+
+INFO: 2026-11-19 12:24:32.479049: 
+INFO: 2026-11-19 12:24:32.479102: 
+INFO: 2026-11-19 12:24:32.479115: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c_bindings_generated.m.o
+
+INFO: 2026-11-19 12:24:32.479487: Running: /Library/Developer/CommandLineTools/usr/bin/clang -shared -Wl,-encryptable -undefined dynamic_lookup -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -target arm64-apple-darwin -mmacos-version-min=13 -framework Foundation /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/include/dart_api_dl.c.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.c.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/input_stream_adapter.m.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c.m.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/observer.m.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/ns_number.m.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/protocol.m.o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/obj/src/objective_c_bindings_generated.m.o -o /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/objective_c.dylib
+
+INFO: 2026-11-19 12:24:32.615199: 
+INFO: 2026-11-19 12:24:32.615248: 
+INFO: 2026-11-19 12:24:32.615260: Generated /Users/shimelisgebeyehu/Desktop/6projects/gebeta/app_flutter/.dart_tool/hooks_runner/shared/objective_c/build/de310349bc/objective_c.dylib
+
