@@ -1,0 +1,26 @@
+name: gebeta
+description: Gebeta, the traditional Ethiopian seed game.
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+
+# Stopgap: package versions are 'any' until someone with a working Flutter runs
+# `flutter pub add` and commits pubspec.lock. Only allowed packages are listed.
+dependencies:
+  flutter:
+    sdk: flutter
+  flame: any
+  flutter_riverpod: any
+  shared_preferences: any
+  flame_audio: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/model/
