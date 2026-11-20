@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gebeta/app.dart';
+import 'package:gebeta/ui/board/board_view.dart';
 
 void main() {
   testWidgets('splash opens home, and home reaches the other screens',
@@ -42,7 +43,7 @@ void main() {
     expect(find.text('Choose your opponent'), findsOneWidget);
     await tester.tap(find.text('Play Now'));
     await tester.pumpAndSettle();
-    expect(find.text('BoardView goes here (Person 1, U1)'), findsOneWidget);
+    expect(find.byType(BoardView), findsOneWidget);
     expect(find.text('Slow'), findsOneWidget);
     expect(find.text('Skip animation'), findsOneWidget);
     await tester.tap(find.byTooltip('Pause'));

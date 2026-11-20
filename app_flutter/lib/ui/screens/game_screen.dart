@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../engine/game_state.dart';
+import '../board/board_view.dart';
 import 'palette.dart';
 import 'pause_overlay.dart';
 import 'routes.dart';
@@ -42,12 +44,15 @@ class GameScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const Expanded(
-                child: Center(
-                  child: Text(
-                    'BoardView goes here (Person 1, U1)',
-                    style: TextStyle(fontSize: 20, color: GebetaColors.cream),
+              Expanded(
+                child: BoardView(
+                  state: GameState(
+                    holes: List<int>.filled(12, 4),
+                    pits: [0, 0],
+                    player: 0,
                   ),
+                  inputEnabled: true,
+                  onHoleTap: (hole) {},
                 ),
               ),
               Row(
