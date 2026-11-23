@@ -1,0 +1,13775 @@
+{
+ "version": 1,
+ "about": "Shared test cases for the Python and Dart engines. Boards list holes 0-11; pits are [player 0, player 1]. turn_ended is the reason on the last turn_end event. encoded is encode(state) before the move. legal_moves is for the player to move. Expected values come from an independent reference simulator.",
+ "move_cases": [
+  {
+   "name": "spec-1-relay-then-capture",
+   "player": 0,
+   "holes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    0
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     6,
+     6,
+     2,
+     7,
+     1,
+     6,
+     1,
+     0,
+     6,
+     6,
+     0,
+     1
+    ],
+    "pits": [
+     6,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "spec-2-relay-ends-on-opponent-side",
+   "player": 0,
+   "holes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    0
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     6,
+     0,
+     1,
+     6,
+     6,
+     2,
+     7,
+     1,
+     6,
+     1,
+     6,
+     6
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "spec-3-capture",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    2,
+    3,
+    2,
+    5,
+    0,
+    0,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    3,
+    5
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    2,
+    3,
+    2,
+    5,
+    0,
+    0,
+    4,
+    0,
+    0
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     2,
+     3,
+     0,
+     5,
+     0,
+     0,
+     4
+    ],
+    "pits": [
+     2,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "spec-4-own-side-opposite-empty",
+   "player": 0,
+   "holes": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1
+   ],
+   "encoded": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "spec-5-ends-on-opponent-side",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    5
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     3,
+     0,
+     0,
+     0
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "spec-6-full-lap-capture",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    12,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    5
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    12,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     0,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "pits": [
+     1,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "mirror-p1-1-relay-then-capture",
+   "player": 1,
+   "holes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    0
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     6,
+     6,
+     0,
+     1,
+     6,
+     6,
+     2,
+     7,
+     1,
+     6
+    ],
+    "pits": [
+     0,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "mirror-p1-2-relay-ends-on-opponent-side",
+   "player": 1,
+   "holes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    0,
+    0
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     6,
+     1,
+     6,
+     6,
+     6,
+     0,
+     1,
+     6,
+     6,
+     2
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "mirror-p1-3-capture",
+   "player": 1,
+   "holes": [
+    3,
+    2,
+    5,
+    0,
+    0,
+    4,
+    0,
+    0,
+    0,
+    1,
+    0,
+    2
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    9,
+    11
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    2,
+    3,
+    2,
+    5,
+    0,
+    0,
+    4,
+    0,
+    0
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     3,
+     0,
+     5,
+     0,
+     0,
+     4,
+     0,
+     0,
+     0,
+     0,
+     1,
+     2
+    ],
+    "pits": [
+     0,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "mirror-p1-4-own-side-opposite-empty",
+   "player": 1,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7
+   ],
+   "encoded": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "mirror-p1-5-ends-on-opponent-side",
+   "player": 1,
+   "holes": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    11
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "mirror-p1-6-full-lap-capture",
+   "player": 1,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    12
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    11
+   ],
+   "encoded": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    12,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "pits": [
+     0,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-01",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    0,
+    2,
+    0,
+    1,
+    1,
+    2,
+    4,
+    5,
+    1,
+    1
+   ],
+   "pits": [
+    2,
+    27
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    0,
+    2,
+    0,
+    1,
+    1,
+    2,
+    4,
+    5,
+    1,
+    1,
+    2,
+    27
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     1,
+     0,
+     1,
+     0,
+     2,
+     0,
+     5,
+     0,
+     0,
+     2
+    ],
+    "pits": [
+     8,
+     27
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-01",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    4,
+    2,
+    2,
+    1,
+    0,
+    3,
+    2
+   ],
+   "pits": [
+    2,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    1,
+    0,
+    1,
+    1,
+    4,
+    28,
+    2
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     0,
+     1,
+     1,
+     4,
+     2,
+     2,
+     0,
+     1,
+     3,
+     2
+    ],
+    "pits": [
+     2,
+     28
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-02",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    2,
+    1,
+    2,
+    2,
+    5,
+    4,
+    6,
+    6,
+    2,
+    5
+   ],
+   "pits": [
+    6,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    4,
+    6,
+    6,
+    2,
+    5,
+    3,
+    3,
+    2,
+    1,
+    2,
+    2,
+    1,
+    6
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     5,
+     5,
+     4,
+     0,
+     0,
+     1,
+     7,
+     2,
+     1,
+     8,
+     4,
+     1
+    ],
+    "pits": [
+     6,
+     4
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-03",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    1,
+    3,
+    5,
+    1,
+    4,
+    8,
+    7,
+    1,
+    5,
+    4
+   ],
+   "pits": [
+    5,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    3,
+    5,
+    1,
+    4,
+    8,
+    7,
+    1,
+    5,
+    4,
+    5,
+    1
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     5,
+     0,
+     3,
+     3,
+     2,
+     1,
+     0,
+     2,
+     10,
+     0,
+     8,
+     1
+    ],
+    "pits": [
+     12,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-01",
+   "player": 0,
+   "holes": [
+    2,
+    5,
+    2,
+    2,
+    2,
+    1,
+    2,
+    7,
+    2,
+    2,
+    1,
+    4
+   ],
+   "pits": [
+    7,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    5,
+    2,
+    2,
+    2,
+    1,
+    2,
+    7,
+    2,
+    2,
+    1,
+    4,
+    7,
+    9
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     3,
+     0,
+     1,
+     3,
+     1,
+     8,
+     3,
+     0,
+     2,
+     5
+    ],
+    "pits": [
+     7,
+     9
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-02",
+   "player": 0,
+   "holes": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    2,
+    0,
+    1,
+    1,
+    2,
+    3,
+    2
+   ],
+   "pits": [
+    8,
+    26
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    2,
+    0,
+    1,
+    1,
+    2,
+    3,
+    2,
+    8,
+    26
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     0,
+     6,
+     1
+    ],
+    "pits": [
+     8,
+     26
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-03",
+   "player": 0,
+   "holes": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    0,
+    4,
+    0,
+    3,
+    2,
+    1,
+    1
+   ],
+   "pits": [
+    12,
+    16
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "encoded": [
+    1,
+    2,
+    3,
+    1,
+    2,
+    0,
+    4,
+    0,
+    3,
+    2,
+    1,
+    1,
+    12,
+    16
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     4,
+     2,
+     0,
+     1,
+     5,
+     1,
+     3,
+     2,
+     1,
+     1
+    ],
+    "pits": [
+     12,
+     16
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-04",
+   "player": 0,
+   "holes": [
+    3,
+    2,
+    2,
+    3,
+    1,
+    4,
+    2,
+    5,
+    3,
+    5,
+    3,
+    1
+   ],
+   "pits": [
+    10,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    2,
+    2,
+    3,
+    1,
+    4,
+    2,
+    5,
+    3,
+    5,
+    3,
+    1,
+    10,
+    4
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     3,
+     2,
+     1,
+     3,
+     5,
+     0,
+     6,
+     1,
+     6,
+     0,
+     6,
+     1
+    ],
+    "pits": [
+     10,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-04",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    7,
+    4,
+    5,
+    2,
+    5,
+    7,
+    6,
+    0,
+    4,
+    1
+   ],
+   "pits": [
+    0,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    7,
+    4,
+    5,
+    2,
+    5,
+    7,
+    6,
+    0,
+    4,
+    1,
+    0,
+    2
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     3,
+     4,
+     8,
+     1,
+     6,
+     3,
+     6,
+     0,
+     0,
+     1,
+     5,
+     2
+    ],
+    "pits": [
+     7,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-05",
+   "player": 0,
+   "holes": [
+    1,
+    3,
+    4,
+    2,
+    4,
+    2,
+    2,
+    0,
+    5,
+    5,
+    3,
+    2
+   ],
+   "pits": [
+    3,
+    12
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    3,
+    4,
+    2,
+    4,
+    2,
+    2,
+    0,
+    5,
+    5,
+    3,
+    2,
+    3,
+    12
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     2,
+     4,
+     1,
+     0,
+     6,
+     4,
+     1,
+     0,
+     7,
+     1,
+     4,
+     3
+    ],
+    "pits": [
+     3,
+     12
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-05",
+   "player": 0,
+   "holes": [
+    4,
+    4,
+    1,
+    1,
+    5,
+    2,
+    2,
+    0,
+    1,
+    1,
+    2,
+    0
+   ],
+   "pits": [
+    9,
+    16
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    4,
+    1,
+    1,
+    5,
+    2,
+    2,
+    0,
+    1,
+    1,
+    2,
+    0,
+    9,
+    16
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     4,
+     2,
+     5,
+     0,
+     1,
+     4,
+     0,
+     2,
+     0
+    ],
+    "pits": [
+     10,
+     16
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-06",
+   "player": 0,
+   "holes": [
+    4,
+    2,
+    0,
+    2,
+    5,
+    8,
+    5,
+    2,
+    3,
+    6,
+    5,
+    5
+   ],
+   "pits": [
+    0,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    2,
+    0,
+    2,
+    5,
+    8,
+    5,
+    2,
+    3,
+    6,
+    5,
+    5,
+    0,
+    1
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     3,
+     0,
+     8,
+     1,
+     0,
+     4,
+     5,
+     8,
+     7,
+     7
+    ],
+    "pits": [
+     1,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-02",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    2,
+    1,
+    1,
+    2,
+    5,
+    0,
+    1,
+    2,
+    2,
+    0
+   ],
+   "pits": [
+    21,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    2,
+    1,
+    1,
+    2,
+    5,
+    0,
+    1,
+    2,
+    2,
+    0,
+    21,
+    8
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     0,
+     2,
+     2,
+     0,
+     6,
+     1,
+     0,
+     3,
+     0,
+     1
+    ],
+    "pits": [
+     21,
+     8
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-03",
+   "player": 0,
+   "holes": [
+    3,
+    1,
+    2,
+    1,
+    3,
+    1,
+    2,
+    1,
+    4,
+    1,
+    3,
+    1
+   ],
+   "pits": [
+    5,
+    20
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    1,
+    2,
+    1,
+    3,
+    1,
+    2,
+    1,
+    4,
+    1,
+    3,
+    1,
+    5,
+    20
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     3,
+     0,
+     4,
+     1,
+     0,
+     2,
+     5,
+     0,
+     4,
+     0
+    ],
+    "pits": [
+     5,
+     20
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-06",
+   "player": 1,
+   "holes": [
+    4,
+    0,
+    3,
+    5,
+    3,
+    7,
+    2,
+    5,
+    4,
+    1,
+    7,
+    3
+   ],
+   "pits": [
+    4,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    5,
+    4,
+    1,
+    7,
+    3,
+    4,
+    0,
+    3,
+    5,
+    3,
+    7,
+    0,
+    4
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     5,
+     1,
+     3,
+     5,
+     3,
+     7,
+     0,
+     6,
+     0,
+     2,
+     8,
+     4
+    ],
+    "pits": [
+     4,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-07",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    1,
+    1,
+    3,
+    1,
+    2,
+    0,
+    4,
+    2,
+    1,
+    4
+   ],
+   "pits": [
+    21,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    1,
+    1,
+    3,
+    1,
+    2,
+    0,
+    4,
+    2,
+    1,
+    4,
+    21,
+    4
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     1,
+     1,
+     0,
+     2,
+     3,
+     1,
+     4,
+     2,
+     1,
+     4
+    ],
+    "pits": [
+     21,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-07",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    2,
+    1,
+    5,
+    1,
+    1,
+    0,
+    2,
+    1,
+    1,
+    2
+   ],
+   "pits": [
+    11,
+    19
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    2,
+    1,
+    5,
+    1,
+    1,
+    0,
+    2,
+    1,
+    1,
+    2,
+    11,
+    19
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     0,
+     1,
+     1,
+     0,
+     3,
+     2,
+     0,
+     3,
+     1,
+     0
+    ],
+    "pits": [
+     15,
+     19
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-08",
+   "player": 0,
+   "holes": [
+    3,
+    1,
+    4,
+    0,
+    0,
+    2,
+    1,
+    1,
+    4,
+    1,
+    4,
+    3
+   ],
+   "pits": [
+    24,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "encoded": [
+    3,
+    1,
+    4,
+    0,
+    0,
+    2,
+    1,
+    1,
+    4,
+    1,
+    4,
+    3,
+    24,
+    0
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     2,
+     1,
+     3,
+     1,
+     0,
+     3,
+     1,
+     0,
+     6,
+     5
+    ],
+    "pits": [
+     25,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-08",
+   "player": 1,
+   "holes": [
+    0,
+    3,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    16,
+    16
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    1,
+    1,
+    1,
+    2,
+    0,
+    1,
+    0,
+    3,
+    2,
+    2,
+    1,
+    2,
+    16,
+    16
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     1,
+     3,
+     2,
+     2,
+     1,
+     2,
+     0,
+     0,
+     2,
+     0,
+     1,
+     2
+    ],
+    "pits": [
+     16,
+     16
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-09",
+   "player": 1,
+   "holes": [
+    0,
+    4,
+    2,
+    3,
+    2,
+    6,
+    2,
+    6,
+    4,
+    1,
+    3,
+    1
+   ],
+   "pits": [
+    3,
+    11
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    6,
+    4,
+    1,
+    3,
+    1,
+    0,
+    4,
+    2,
+    3,
+    2,
+    6,
+    11,
+    3
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     1,
+     4,
+     2,
+     3,
+     2,
+     6,
+     2,
+     6,
+     0,
+     2,
+     4,
+     2
+    ],
+    "pits": [
+     3,
+     11
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-09",
+   "player": 1,
+   "holes": [
+    1,
+    2,
+    4,
+    2,
+    6,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   "pits": [
+    10,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    3,
+    3,
+    3,
+    3,
+    3,
+    1,
+    2,
+    4,
+    2,
+    6,
+    4,
+    0,
+    10
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     0,
+     3,
+     5,
+     0,
+     7,
+     5,
+     0,
+     4,
+     1,
+     5,
+     5,
+     1
+    ],
+    "pits": [
+     10,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-10",
+   "player": 1,
+   "holes": [
+    2,
+    0,
+    1,
+    1,
+    1,
+    2,
+    2,
+    1,
+    2,
+    0,
+    5,
+    1
+   ],
+   "pits": [
+    17,
+    13
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    2,
+    0,
+    5,
+    1,
+    2,
+    0,
+    1,
+    1,
+    1,
+    2,
+    13,
+    17
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     0,
+     0,
+     1,
+     6,
+     0
+    ],
+    "pits": [
+     17,
+     13
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-10",
+   "player": 0,
+   "holes": [
+    4,
+    3,
+    1,
+    4,
+    2,
+    4,
+    1,
+    3,
+    3,
+    3,
+    4,
+    1
+   ],
+   "pits": [
+    14,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    3,
+    1,
+    4,
+    2,
+    4,
+    1,
+    3,
+    3,
+    3,
+    4,
+    1,
+    14,
+    1
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     1,
+     5,
+     0,
+     6,
+     2,
+     1,
+     0,
+     5,
+     1,
+     5,
+     6,
+     0
+    ],
+    "pits": [
+     15,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-11",
+   "player": 1,
+   "holes": [
+    2,
+    2,
+    2,
+    1,
+    2,
+    0,
+    2,
+    1,
+    4,
+    2,
+    1,
+    3
+   ],
+   "pits": [
+    21,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    4,
+    2,
+    1,
+    3,
+    2,
+    2,
+    2,
+    1,
+    2,
+    0,
+    5,
+    21
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     0,
+     3,
+     3,
+     0,
+     3,
+     1,
+     2,
+     1,
+     0,
+     3,
+     2,
+     4
+    ],
+    "pits": [
+     21,
+     5
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-11",
+   "player": 1,
+   "holes": [
+    3,
+    1,
+    1,
+    2,
+    5,
+    4,
+    2,
+    5,
+    2,
+    2,
+    4,
+    3
+   ],
+   "pits": [
+    8,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    5,
+    2,
+    2,
+    4,
+    3,
+    3,
+    1,
+    1,
+    2,
+    5,
+    4,
+    6,
+    8
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     4,
+     2,
+     0,
+     0,
+     6,
+     5,
+     0,
+     6,
+     3,
+     1,
+     5,
+     0
+    ],
+    "pits": [
+     8,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-12",
+   "player": 0,
+   "holes": [
+    0,
+    1,
+    2,
+    0,
+    1,
+    4,
+    1,
+    1,
+    5,
+    1,
+    1,
+    0
+   ],
+   "pits": [
+    6,
+    25
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    1,
+    2,
+    0,
+    1,
+    4,
+    1,
+    1,
+    5,
+    1,
+    1,
+    0,
+    6,
+    25
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     0,
+     1,
+     2,
+     0,
+     2,
+     2,
+     6,
+     2,
+     0,
+     0
+    ],
+    "pits": [
+     7,
+     25
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-13",
+   "player": 0,
+   "holes": [
+    2,
+    0,
+    8,
+    4,
+    4,
+    2,
+    2,
+    1,
+    7,
+    3,
+    4,
+    4
+   ],
+   "pits": [
+    5,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    0,
+    8,
+    4,
+    4,
+    2,
+    2,
+    1,
+    7,
+    3,
+    4,
+    4,
+    5,
+    2
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     9,
+     5,
+     1,
+     3,
+     3,
+     0,
+     0,
+     4,
+     5,
+     5
+    ],
+    "pits": [
+     7,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-04",
+   "player": 1,
+   "holes": [
+    2,
+    1,
+    3,
+    1,
+    1,
+    1,
+    2,
+    2,
+    3,
+    1,
+    3,
+    2
+   ],
+   "pits": [
+    4,
+    22
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    3,
+    1,
+    3,
+    2,
+    2,
+    1,
+    3,
+    1,
+    1,
+    1,
+    22,
+    4
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     3,
+     2,
+     0,
+     2,
+     2,
+     2,
+     0,
+     1,
+     5,
+     1,
+     4,
+     0
+    ],
+    "pits": [
+     4,
+     22
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-14",
+   "player": 0,
+   "holes": [
+    4,
+    3,
+    3,
+    6,
+    2,
+    4,
+    4,
+    5,
+    3,
+    2,
+    3,
+    5
+   ],
+   "pits": [
+    1,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    3,
+    3,
+    6,
+    2,
+    4,
+    4,
+    5,
+    3,
+    2,
+    3,
+    5,
+    1,
+    3
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     9,
+     2,
+     7,
+     1,
+     2,
+     0,
+     0,
+     6,
+     8
+    ],
+    "pits": [
+     6,
+     3
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-05",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    3,
+    2,
+    0,
+    1,
+    2,
+    0,
+    1,
+    1,
+    3,
+    2
+   ],
+   "pits": [
+    17,
+    14
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    0,
+    1,
+    1,
+    3,
+    2,
+    1,
+    1,
+    3,
+    2,
+    0,
+    1,
+    14,
+    17
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     0,
+     3,
+     1,
+     2,
+     0,
+     1,
+     2,
+     1,
+     0,
+     3
+    ],
+    "pits": [
+     17,
+     14
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-12",
+   "player": 0,
+   "holes": [
+    3,
+    4,
+    2,
+    1,
+    4,
+    4,
+    1,
+    6,
+    6,
+    2,
+    3,
+    1
+   ],
+   "pits": [
+    9,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    4,
+    2,
+    1,
+    4,
+    4,
+    1,
+    6,
+    6,
+    2,
+    3,
+    1,
+    9,
+    2
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     2,
+     3,
+     8,
+     0,
+     2,
+     10,
+     1,
+     1,
+     2,
+     4
+    ],
+    "pits": [
+     9,
+     2
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-15",
+   "player": 1,
+   "holes": [
+    4,
+    5,
+    4,
+    3,
+    2,
+    4,
+    4,
+    5,
+    4,
+    4,
+    1,
+    5
+   ],
+   "pits": [
+    0,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    5,
+    4,
+    4,
+    1,
+    5,
+    4,
+    5,
+    4,
+    3,
+    2,
+    4,
+    3,
+    0
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     0,
+     1,
+     0,
+     3,
+     4,
+     11,
+     7,
+     3,
+     1,
+     5
+    ],
+    "pits": [
+     0,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-13",
+   "player": 1,
+   "holes": [
+    2,
+    1,
+    1,
+    3,
+    2,
+    1,
+    2,
+    5,
+    3,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    24,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    2,
+    5,
+    3,
+    2,
+    0,
+    1,
+    2,
+    1,
+    1,
+    3,
+    2,
+    1,
+    1,
+    24
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     3,
+     1,
+     0,
+     3,
+     4,
+     1,
+     0,
+     4,
+     2,
+     2
+    ],
+    "pits": [
+     24,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-06",
+   "player": 1,
+   "holes": [
+    0,
+    2,
+    2,
+    1,
+    0,
+    2,
+    0,
+    0,
+    3,
+    3,
+    0,
+    0
+   ],
+   "pits": [
+    29,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    8,
+    9
+   ],
+   "encoded": [
+    0,
+    0,
+    3,
+    3,
+    0,
+    0,
+    0,
+    2,
+    2,
+    1,
+    0,
+    2,
+    6,
+    29
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     2,
+     1,
+     0,
+     2,
+     0,
+     0,
+     0,
+     4,
+     1,
+     1
+    ],
+    "pits": [
+     29,
+     6
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-14",
+   "player": 0,
+   "holes": [
+    3,
+    1,
+    2,
+    3,
+    3,
+    1,
+    2,
+    0,
+    1,
+    0,
+    1,
+    1
+   ],
+   "pits": [
+    25,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    1,
+    2,
+    3,
+    3,
+    1,
+    2,
+    0,
+    1,
+    0,
+    1,
+    1,
+    25,
+    5
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     2,
+     0,
+     4,
+     2,
+     0,
+     1,
+     2,
+     1,
+     1,
+     1
+    ],
+    "pits": [
+     25,
+     5
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-16",
+   "player": 0,
+   "holes": [
+    6,
+    4,
+    2,
+    4,
+    4,
+    2,
+    1,
+    5,
+    7,
+    2,
+    7,
+    3
+   ],
+   "pits": [
+    0,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    6,
+    4,
+    2,
+    4,
+    4,
+    2,
+    1,
+    5,
+    7,
+    2,
+    7,
+    3,
+    0,
+    1
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     6,
+     1,
+     8,
+     2,
+     4,
+     8,
+     1,
+     3,
+     5,
+     8,
+     0,
+     0
+    ],
+    "pits": [
+     1,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-17",
+   "player": 0,
+   "holes": [
+    1,
+    4,
+    7,
+    3,
+    1,
+    3,
+    2,
+    4,
+    5,
+    2,
+    4,
+    2
+   ],
+   "pits": [
+    2,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    4,
+    7,
+    3,
+    1,
+    3,
+    2,
+    4,
+    5,
+    2,
+    4,
+    2,
+    2,
+    8
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     2,
+     7,
+     2,
+     3,
+     1,
+     6,
+     2,
+     0,
+     0,
+     2,
+     1,
+     5
+    ],
+    "pits": [
+     9,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-07",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    2,
+    4,
+    2
+   ],
+   "pits": [
+    7,
+    24
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    1,
+    1,
+    2,
+    4,
+    2,
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    24,
+    7
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     1,
+     0,
+     2,
+     0,
+     2,
+     1,
+     1,
+     3,
+     0,
+     3
+    ],
+    "pits": [
+     7,
+     24
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-08",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    4,
+    1,
+    1,
+    1,
+    0,
+    3,
+    2,
+    6,
+    4,
+    3
+   ],
+   "pits": [
+    16,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    3,
+    2,
+    6,
+    4,
+    3,
+    3,
+    3,
+    4,
+    1,
+    1,
+    1,
+    1,
+    16
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     5,
+     5,
+     6,
+     1,
+     0,
+     1,
+     2,
+     1,
+     1,
+     8,
+     1,
+     0
+    ],
+    "pits": [
+     16,
+     1
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-15",
+   "player": 1,
+   "holes": [
+    3,
+    4,
+    2,
+    2,
+    6,
+    2,
+    3,
+    7,
+    1,
+    4,
+    2,
+    2
+   ],
+   "pits": [
+    3,
+    7
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    7,
+    1,
+    4,
+    2,
+    2,
+    3,
+    4,
+    2,
+    2,
+    6,
+    2,
+    7,
+    3
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     5,
+     1,
+     3,
+     3,
+     7,
+     3,
+     0,
+     8,
+     2,
+     5,
+     0,
+     1
+    ],
+    "pits": [
+     3,
+     7
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-18",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    4,
+    5,
+    4,
+    3,
+    4,
+    1,
+    5,
+    3,
+    3,
+    3
+   ],
+   "pits": [
+    9,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    4,
+    5,
+    4,
+    3,
+    4,
+    1,
+    5,
+    3,
+    3,
+    3,
+    9,
+    2
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     4,
+     4,
+     2,
+     1,
+     8,
+     1,
+     0,
+     1,
+     2,
+     6,
+     1,
+     0
+    ],
+    "pits": [
+     16,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-16",
+   "player": 1,
+   "holes": [
+    3,
+    0,
+    0,
+    3,
+    3,
+    4,
+    5,
+    1,
+    7,
+    4,
+    4,
+    2
+   ],
+   "pits": [
+    8,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    1,
+    7,
+    4,
+    4,
+    2,
+    3,
+    0,
+    0,
+    3,
+    3,
+    4,
+    4,
+    8
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     5,
+     2,
+     2,
+     1,
+     4,
+     5,
+     6,
+     0,
+     1,
+     0,
+     6,
+     4
+    ],
+    "pits": [
+     8,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-17",
+   "player": 0,
+   "holes": [
+    0,
+    1,
+    2,
+    3,
+    0,
+    1,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0
+   ],
+   "pits": [
+    1,
+    34
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    0,
+    1,
+    2,
+    3,
+    0,
+    1,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    1,
+    34
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     0,
+     4,
+     1,
+     0,
+     3,
+     0,
+     2,
+     2,
+     1,
+     0
+    ],
+    "pits": [
+     1,
+     34
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-18",
+   "player": 1,
+   "holes": [
+    1,
+    4,
+    0,
+    2,
+    1,
+    3,
+    2,
+    1,
+    1,
+    1,
+    3,
+    0
+   ],
+   "pits": [
+    4,
+    25
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    1,
+    3,
+    0,
+    1,
+    4,
+    0,
+    2,
+    1,
+    3,
+    25,
+    4
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     2,
+     5,
+     1,
+     2,
+     1,
+     3,
+     2,
+     1,
+     1,
+     0,
+     0,
+     1
+    ],
+    "pits": [
+     4,
+     25
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-19",
+   "player": 0,
+   "holes": [
+    0,
+    4,
+    2,
+    2,
+    0,
+    2,
+    1,
+    3,
+    2,
+    1,
+    1,
+    0
+   ],
+   "pits": [
+    24,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    0,
+    4,
+    2,
+    2,
+    0,
+    2,
+    1,
+    3,
+    2,
+    1,
+    1,
+    0,
+    24,
+    6
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     3,
+     3,
+     1,
+     0,
+     2,
+     4,
+     0,
+     2,
+     2,
+     1
+    ],
+    "pits": [
+     24,
+     6
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-09",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    1,
+    1,
+    5,
+    0,
+    0,
+    1,
+    1
+   ],
+   "pits": [
+    26,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    1,
+    1,
+    5,
+    0,
+    0,
+    1,
+    1,
+    26,
+    9
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     1,
+     1,
+     0,
+     1,
+     1,
+     5,
+     0,
+     0,
+     1,
+     1
+    ],
+    "pits": [
+     26,
+     9
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-19",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    2,
+    1,
+    3,
+    1,
+    2,
+    0,
+    2,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    6,
+    26
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    2,
+    1,
+    3,
+    1,
+    2,
+    0,
+    2,
+    2,
+    0,
+    1,
+    6,
+    26
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     2,
+     1,
+     1,
+     3,
+     0,
+     2,
+     0,
+     4,
+     0,
+     1
+    ],
+    "pits": [
+     7,
+     26
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-20",
+   "player": 1,
+   "holes": [
+    0,
+    1,
+    1,
+    1,
+    2,
+    1,
+    2,
+    0,
+    1,
+    5,
+    1,
+    1
+   ],
+   "pits": [
+    26,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    0,
+    1,
+    5,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    2,
+    1,
+    6,
+    26
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     1,
+     1,
+     2,
+     1,
+     0,
+     1,
+     0,
+     6,
+     0,
+     2
+    ],
+    "pits": [
+     26,
+     6
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-20",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    1,
+    3,
+    6,
+    5,
+    5,
+    4,
+    2,
+    7,
+    5,
+    5
+   ],
+   "pits": [
+    1,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    4,
+    2,
+    7,
+    5,
+    5,
+    1,
+    3,
+    1,
+    3,
+    6,
+    5,
+    0,
+    1
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     5,
+     1,
+     0,
+     7,
+     0,
+     9,
+     2,
+     1,
+     3,
+     11,
+     3,
+     2
+    ],
+    "pits": [
+     1,
+     3
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-10",
+   "player": 1,
+   "holes": [
+    2,
+    0,
+    0,
+    0,
+    1,
+    3,
+    2,
+    2,
+    0,
+    1,
+    0,
+    1
+   ],
+   "pits": [
+    1,
+    35
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    9,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    0,
+    1,
+    0,
+    1,
+    2,
+    0,
+    0,
+    0,
+    1,
+    3,
+    35,
+    1
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     0,
+     0,
+     1,
+     3,
+     0,
+     3,
+     1,
+     1,
+     0,
+     1
+    ],
+    "pits": [
+     1,
+     35
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-21",
+   "player": 0,
+   "holes": [
+    3,
+    1,
+    1,
+    3,
+    3,
+    2,
+    2,
+    0,
+    1,
+    1,
+    0,
+    2
+   ],
+   "pits": [
+    14,
+    15
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    1,
+    1,
+    3,
+    3,
+    2,
+    2,
+    0,
+    1,
+    1,
+    0,
+    2,
+    14,
+    15
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     1,
+     3,
+     3,
+     0,
+     3,
+     1,
+     1,
+     1,
+     0,
+     2
+    ],
+    "pits": [
+     14,
+     15
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-22",
+   "player": 1,
+   "holes": [
+    5,
+    6,
+    4,
+    2,
+    4,
+    1,
+    5,
+    3,
+    4,
+    4,
+    3,
+    5
+   ],
+   "pits": [
+    1,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    3,
+    4,
+    4,
+    3,
+    5,
+    5,
+    6,
+    4,
+    2,
+    4,
+    1,
+    1,
+    1
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     5,
+     3,
+     5,
+     2,
+     6,
+     4,
+     0,
+     1,
+     5,
+     7
+    ],
+    "pits": [
+     1,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-23",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    1,
+    2,
+    1,
+    1,
+    0,
+    2
+   ],
+   "pits": [
+    12,
+    15
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    3,
+    3,
+    3,
+    1,
+    1,
+    2,
+    1,
+    1,
+    0,
+    2,
+    12,
+    15
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     0,
+     4,
+     4,
+     0,
+     2,
+     0,
+     2,
+     2,
+     1,
+     2
+    ],
+    "pits": [
+     12,
+     15
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-24",
+   "player": 0,
+   "holes": [
+    1,
+    6,
+    3,
+    4,
+    5,
+    3,
+    1,
+    2,
+    6,
+    2,
+    3,
+    1
+   ],
+   "pits": [
+    5,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    6,
+    3,
+    4,
+    5,
+    3,
+    1,
+    2,
+    6,
+    2,
+    3,
+    1,
+    5,
+    6
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     0,
+     6,
+     7,
+     5,
+     3,
+     1,
+     7,
+     3,
+     0,
+     2
+    ],
+    "pits": [
+     5,
+     6
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-21",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    2,
+    1,
+    4,
+    2,
+    1,
+    3,
+    2,
+    2,
+    2,
+    1
+   ],
+   "pits": [
+    25,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    2,
+    1,
+    4,
+    2,
+    1,
+    3,
+    2,
+    2,
+    2,
+    1,
+    25,
+    0
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     0,
+     2,
+     5,
+     0,
+     2,
+     4,
+     0,
+     3,
+     0,
+     0
+    ],
+    "pits": [
+     28,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-22",
+   "player": 1,
+   "holes": [
+    4,
+    5,
+    1,
+    3,
+    5,
+    3,
+    2,
+    2,
+    2,
+    0,
+    3,
+    1
+   ],
+   "pits": [
+    13,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    2,
+    0,
+    3,
+    1,
+    4,
+    5,
+    1,
+    3,
+    5,
+    3,
+    4,
+    13
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     0,
+     4,
+     6,
+     0,
+     3,
+     3,
+     3,
+     1,
+     3,
+     0
+    ],
+    "pits": [
+     13,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-23",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    0,
+    1,
+    1,
+    4,
+    2,
+    2,
+    4,
+    1,
+    6,
+    2
+   ],
+   "pits": [
+    20,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    0,
+    1,
+    1,
+    4,
+    2,
+    2,
+    4,
+    1,
+    6,
+    2,
+    20,
+    2
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     3,
+     2,
+     1,
+     2,
+     1,
+     1,
+     0,
+     3,
+     5,
+     2,
+     0,
+     3
+    ],
+    "pits": [
+     23,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-24",
+   "player": 1,
+   "holes": [
+    4,
+    4,
+    3,
+    5,
+    3,
+    2,
+    3,
+    4,
+    1,
+    2,
+    7,
+    3
+   ],
+   "pits": [
+    2,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    4,
+    1,
+    2,
+    7,
+    3,
+    4,
+    4,
+    3,
+    5,
+    3,
+    2,
+    5,
+    2
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     5,
+     5,
+     0,
+     0,
+     4,
+     3,
+     4,
+     5,
+     2,
+     1,
+     8,
+     0
+    ],
+    "pits": [
+     2,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-25",
+   "player": 1,
+   "holes": [
+    0,
+    2,
+    1,
+    4,
+    2,
+    3,
+    5,
+    1,
+    3,
+    3,
+    0,
+    6
+   ],
+   "pits": [
+    2,
+    16
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    5,
+    1,
+    3,
+    3,
+    0,
+    6,
+    0,
+    2,
+    1,
+    4,
+    2,
+    3,
+    16,
+    2
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     4,
+     2,
+     3,
+     5,
+     0,
+     0,
+     4,
+     1,
+     7
+    ],
+    "pits": [
+     2,
+     16
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-25",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    0,
+    1,
+    4,
+    2,
+    3,
+    3,
+    2,
+    1,
+    1,
+    5
+   ],
+   "pits": [
+    13,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    0,
+    1,
+    4,
+    2,
+    3,
+    3,
+    2,
+    1,
+    1,
+    5,
+    13,
+    9
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     3,
+     1,
+     1,
+     4,
+     2,
+     3,
+     3,
+     2,
+     0,
+     1,
+     5
+    ],
+    "pits": [
+     14,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-26",
+   "player": 1,
+   "holes": [
+    2,
+    2,
+    3,
+    2,
+    5,
+    2,
+    0,
+    2,
+    3,
+    3,
+    2,
+    3
+   ],
+   "pits": [
+    8,
+    11
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    2,
+    3,
+    3,
+    2,
+    3,
+    2,
+    2,
+    3,
+    2,
+    5,
+    2,
+    11,
+    8
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     0,
+     3,
+     4,
+     0,
+     6,
+     0,
+     1,
+     2,
+     3,
+     3,
+     0,
+     4
+    ],
+    "pits": [
+     8,
+     14
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-11",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    1,
+    0,
+    0,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    2
+   ],
+   "pits": [
+    4,
+    32
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    0,
+    0,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    2,
+    4,
+    32
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     0,
+     1,
+     1,
+     1,
+     2,
+     0,
+     2,
+     1,
+     0,
+     2
+    ],
+    "pits": [
+     4,
+     32
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-27",
+   "player": 1,
+   "holes": [
+    5,
+    1,
+    1,
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    1,
+    2,
+    0
+   ],
+   "pits": [
+    9,
+    25
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    9,
+    10
+   ],
+   "encoded": [
+    0,
+    2,
+    0,
+    1,
+    2,
+    0,
+    5,
+    1,
+    1,
+    1,
+    0,
+    1,
+    25,
+    9
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     3,
+     1
+    ],
+    "pits": [
+     9,
+     30
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-26",
+   "player": 0,
+   "holes": [
+    3,
+    5,
+    0,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    0,
+    0,
+    3
+   ],
+   "pits": [
+    0,
+    22
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    5,
+    0,
+    2,
+    2,
+    2,
+    3,
+    3,
+    3,
+    0,
+    0,
+    3,
+    0,
+    22
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     1,
+     0,
+     3,
+     3,
+     0,
+     4,
+     4,
+     1,
+     1,
+     3
+    ],
+    "pits": [
+     0,
+     22
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-28",
+   "player": 1,
+   "holes": [
+    6,
+    3,
+    3,
+    4,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0
+   ],
+   "pits": [
+    13,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "encoded": [
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    6,
+    3,
+    3,
+    4,
+    2,
+    2,
+    8,
+    13
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     0,
+     0,
+     5,
+     5,
+     1,
+     2,
+     1,
+     4,
+     0,
+     1
+    ],
+    "pits": [
+     13,
+     15
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-29",
+   "player": 1,
+   "holes": [
+    3,
+    6,
+    5,
+    3,
+    1,
+    2,
+    1,
+    6,
+    3,
+    8,
+    2,
+    4
+   ],
+   "pits": [
+    3,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    6,
+    3,
+    8,
+    2,
+    4,
+    3,
+    6,
+    5,
+    3,
+    1,
+    2,
+    1,
+    3
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     4,
+     7,
+     6,
+     0,
+     0,
+     3,
+     0,
+     7,
+     1,
+     9,
+     3,
+     0
+    ],
+    "pits": [
+     3,
+     5
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-30",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    3,
+    2,
+    4,
+    3,
+    5,
+    3,
+    3,
+    1,
+    2,
+    2
+   ],
+   "pits": [
+    7,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    3,
+    3,
+    1,
+    2,
+    2,
+    1,
+    3,
+    3,
+    2,
+    4,
+    3,
+    9,
+    7
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     0,
+     3,
+     5,
+     0,
+     6,
+     4,
+     4,
+     1,
+     0,
+     3
+    ],
+    "pits": [
+     7,
+     13
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-27",
+   "player": 1,
+   "holes": [
+    3,
+    0,
+    5,
+    0,
+    2,
+    0,
+    0,
+    0,
+    2,
+    2,
+    2,
+    5
+   ],
+   "pits": [
+    4,
+    23
+   ],
+   "turns": 0,
+   "legal_moves": [
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    0,
+    2,
+    2,
+    2,
+    5,
+    3,
+    0,
+    5,
+    0,
+    2,
+    0,
+    23,
+    4
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     4,
+     1,
+     6,
+     1,
+     3,
+     1,
+     0,
+     0,
+     2,
+     0,
+     3,
+     0
+    ],
+    "pits": [
+     4,
+     23
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-31",
+   "player": 1,
+   "holes": [
+    5,
+    4,
+    2,
+    4,
+    1,
+    4,
+    3,
+    4,
+    4,
+    3,
+    6,
+    5
+   ],
+   "pits": [
+    1,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    4,
+    4,
+    3,
+    6,
+    5,
+    5,
+    4,
+    2,
+    4,
+    1,
+    4,
+    2,
+    1
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     1,
+     6,
+     4,
+     6,
+     3,
+     0,
+     1,
+     5,
+     5,
+     1,
+     0,
+     7
+    ],
+    "pits": [
+     1,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-12",
+   "player": 0,
+   "holes": [
+    0,
+    3,
+    2,
+    1,
+    0,
+    1,
+    1,
+    0,
+    2,
+    1,
+    2,
+    1
+   ],
+   "pits": [
+    25,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    0,
+    3,
+    2,
+    1,
+    0,
+    1,
+    1,
+    0,
+    2,
+    1,
+    2,
+    1,
+    25,
+    9
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     3,
+     2,
+     1,
+     1,
+     0,
+     1,
+     0,
+     2,
+     3,
+     0
+    ],
+    "pits": [
+     25,
+     9
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-28",
+   "player": 1,
+   "holes": [
+    1,
+    0,
+    2,
+    3,
+    1,
+    1,
+    2,
+    0,
+    1,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    8,
+    26
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    2,
+    0,
+    1,
+    2,
+    0,
+    1,
+    1,
+    0,
+    2,
+    3,
+    1,
+    1,
+    26,
+    8
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     2,
+     3,
+     1,
+     1,
+     2,
+     0,
+     1,
+     0,
+     1,
+     0
+    ],
+    "pits": [
+     8,
+     26
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-29",
+   "player": 1,
+   "holes": [
+    4,
+    6,
+    1,
+    4,
+    1,
+    6,
+    2,
+    2,
+    2,
+    1,
+    2,
+    6
+   ],
+   "pits": [
+    10,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    2,
+    1,
+    2,
+    6,
+    4,
+    6,
+    1,
+    4,
+    1,
+    6,
+    1,
+    10
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     1,
+     7,
+     2,
+     5,
+     2,
+     0,
+     3,
+     3,
+     3,
+     2,
+     1,
+     8
+    ],
+    "pits": [
+     10,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-30",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "pits": [
+    22,
+    13
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    2,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1,
+    0,
+    22,
+    13
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     3,
+     3,
+     0,
+     2,
+     0,
+     1,
+     1,
+     0,
+     1,
+     0
+    ],
+    "pits": [
+     22,
+     13
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-31",
+   "player": 0,
+   "holes": [
+    1,
+    4,
+    2,
+    1,
+    3,
+    2,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1
+   ],
+   "pits": [
+    18,
+    12
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    4,
+    2,
+    1,
+    3,
+    2,
+    0,
+    0,
+    2,
+    1,
+    1,
+    1,
+    18,
+    12
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     1,
+     4,
+     2,
+     1,
+     0,
+     3,
+     1,
+     1,
+     2,
+     1,
+     1,
+     1
+    ],
+    "pits": [
+     18,
+     12
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-13",
+   "player": 0,
+   "holes": [
+    0,
+    2,
+    4,
+    3,
+    0,
+    1,
+    1,
+    0,
+    2,
+    0,
+    2,
+    5
+   ],
+   "pits": [
+    12,
+    16
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    0,
+    2,
+    4,
+    3,
+    0,
+    1,
+    1,
+    0,
+    2,
+    0,
+    2,
+    5,
+    12,
+    16
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     1,
+     3,
+     5,
+     4,
+     1,
+     1,
+     0,
+     1,
+     0,
+     1,
+     3,
+     0
+    ],
+    "pits": [
+     12,
+     16
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-32",
+   "player": 0,
+   "holes": [
+    3,
+    2,
+    4,
+    2,
+    9,
+    2,
+    6,
+    6,
+    1,
+    2,
+    4,
+    5
+   ],
+   "pits": [
+    2,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    2,
+    4,
+    2,
+    9,
+    2,
+    6,
+    6,
+    1,
+    2,
+    4,
+    5,
+    2,
+    0
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     4,
+     3,
+     0,
+     3,
+     10,
+     1,
+     8,
+     1,
+     2,
+     3,
+     5,
+     6
+    ],
+    "pits": [
+     2,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-33",
+   "player": 1,
+   "holes": [
+    4,
+    1,
+    1,
+    3,
+    5,
+    3,
+    5,
+    4,
+    2,
+    5,
+    1,
+    1
+   ],
+   "pits": [
+    6,
+    7
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    4,
+    2,
+    5,
+    1,
+    1,
+    4,
+    1,
+    1,
+    3,
+    5,
+    3,
+    7,
+    6
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     6,
+     1,
+     2,
+     0,
+     6,
+     4,
+     1,
+     0,
+     4,
+     7,
+     3,
+     1
+    ],
+    "pits": [
+     6,
+     7
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-34",
+   "player": 0,
+   "holes": [
+    3,
+    1,
+    2,
+    1,
+    1,
+    3,
+    6,
+    3,
+    4,
+    1,
+    1,
+    1
+   ],
+   "pits": [
+    16,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    1,
+    2,
+    1,
+    1,
+    3,
+    6,
+    3,
+    4,
+    1,
+    1,
+    1,
+    16,
+    5
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     0,
+     2,
+     1,
+     2,
+     9,
+     1,
+     6,
+     1,
+     3,
+     1
+    ],
+    "pits": [
+     16,
+     5
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-35",
+   "player": 0,
+   "holes": [
+    3,
+    2,
+    2,
+    1,
+    0,
+    1,
+    3,
+    3,
+    2,
+    6,
+    2,
+    2
+   ],
+   "pits": [
+    0,
+    21
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    3,
+    2,
+    2,
+    1,
+    0,
+    1,
+    3,
+    3,
+    2,
+    6,
+    2,
+    2,
+    0,
+    21
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     4,
+     1,
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     4,
+     8,
+     4,
+     1
+    ],
+    "pits": [
+     0,
+     21
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-32",
+   "player": 0,
+   "holes": [
+    3,
+    3,
+    7,
+    3,
+    6,
+    0,
+    5,
+    7,
+    2,
+    3,
+    2,
+    3
+   ],
+   "pits": [
+    1,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "encoded": [
+    3,
+    3,
+    7,
+    3,
+    6,
+    0,
+    5,
+    7,
+    2,
+    3,
+    2,
+    3,
+    1,
+    3
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     8,
+     2,
+     5,
+     2,
+     1,
+     3,
+     0,
+     0,
+     7,
+     4,
+     1,
+     8
+    ],
+    "pits": [
+     4,
+     3
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-33",
+   "player": 0,
+   "holes": [
+    0,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    3,
+    1
+   ],
+   "pits": [
+    2,
+    29
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    2,
+    1,
+    1,
+    3,
+    1,
+    2,
+    29
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     2,
+     0,
+     3,
+     2,
+     0,
+     2,
+     0,
+     0,
+     2
+    ],
+    "pits": [
+     4,
+     29
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-36",
+   "player": 1,
+   "holes": [
+    0,
+    3,
+    4,
+    2,
+    1,
+    0,
+    3,
+    2,
+    2,
+    2,
+    0,
+    3
+   ],
+   "pits": [
+    2,
+    24
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    3,
+    2,
+    2,
+    2,
+    0,
+    3,
+    0,
+    3,
+    4,
+    2,
+    1,
+    0,
+    24,
+    2
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     1,
+     3,
+     4,
+     2,
+     1,
+     0,
+     0,
+     3,
+     3,
+     0,
+     1,
+     4
+    ],
+    "pits": [
+     2,
+     24
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-37",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    3,
+    1,
+    1,
+    3,
+    1,
+    3,
+    1,
+    3,
+    1,
+    1
+   ],
+   "pits": [
+    15,
+    13
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    3,
+    1,
+    3,
+    1,
+    1,
+    1,
+    1,
+    3,
+    1,
+    1,
+    3,
+    13,
+    15
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     1,
+     3,
+     1,
+     2,
+     2,
+     4,
+     0,
+     1,
+     0,
+     5,
+     1,
+     0
+    ],
+    "pits": [
+     15,
+     13
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-38",
+   "player": 1,
+   "holes": [
+    5,
+    2,
+    1,
+    0,
+    4,
+    5,
+    4,
+    1,
+    1,
+    2,
+    2,
+    3
+   ],
+   "pits": [
+    8,
+    10
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    1,
+    1,
+    2,
+    2,
+    3,
+    5,
+    2,
+    1,
+    0,
+    4,
+    5,
+    10,
+    8
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     2,
+     1,
+     0,
+     6,
+     1,
+     3,
+     3,
+     0,
+     1,
+     5
+    ],
+    "pits": [
+     8,
+     10
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-39",
+   "player": 1,
+   "holes": [
+    5,
+    6,
+    0,
+    3,
+    1,
+    2,
+    2,
+    1,
+    3,
+    2,
+    2,
+    3
+   ],
+   "pits": [
+    3,
+    15
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    3,
+    2,
+    2,
+    3,
+    5,
+    6,
+    0,
+    3,
+    1,
+    2,
+    15,
+    3
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     6,
+     7,
+     1,
+     3,
+     1,
+     2,
+     2,
+     1,
+     3,
+     2,
+     2,
+     0
+    ],
+    "pits": [
+     3,
+     15
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-34",
+   "player": 0,
+   "holes": [
+    2,
+    4,
+    3,
+    1,
+    3,
+    4,
+    1,
+    1,
+    0,
+    3,
+    6,
+    2
+   ],
+   "pits": [
+    17,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    4,
+    3,
+    1,
+    3,
+    4,
+    1,
+    1,
+    0,
+    3,
+    6,
+    2,
+    17,
+    1
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     3,
+     5,
+     1,
+     3,
+     5,
+     1,
+     0,
+     2,
+     1,
+     4,
+     0,
+     3
+    ],
+    "pits": [
+     19,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-35",
+   "player": 1,
+   "holes": [
+    1,
+    2,
+    2,
+    4,
+    6,
+    3,
+    2,
+    3,
+    2,
+    4,
+    3,
+    1
+   ],
+   "pits": [
+    1,
+    14
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    3,
+    2,
+    4,
+    3,
+    1,
+    1,
+    2,
+    2,
+    4,
+    6,
+    3,
+    14,
+    1
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     3,
+     4,
+     0,
+     0,
+     8,
+     1,
+     4,
+     5,
+     2,
+     1,
+     1,
+     3
+    ],
+    "pits": [
+     1,
+     15
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-36",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    3,
+    2,
+    3,
+    6,
+    7,
+    1,
+    3,
+    1,
+    2,
+    3
+   ],
+   "pits": [
+    10,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    3,
+    2,
+    3,
+    6,
+    7,
+    1,
+    3,
+    1,
+    2,
+    3,
+    10,
+    3
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     4,
+     4,
+     5,
+     1,
+     4,
+     1,
+     0,
+     3,
+     0,
+     3,
+     4,
+     1
+    ],
+    "pits": [
+     15,
+     3
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-40",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    0,
+    4,
+    3,
+    0,
+    2,
+    5,
+    3,
+    2,
+    4,
+    3
+   ],
+   "pits": [
+    8,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4
+   ],
+   "encoded": [
+    2,
+    3,
+    0,
+    4,
+    3,
+    0,
+    2,
+    5,
+    3,
+    2,
+    4,
+    3,
+    8,
+    9
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     3,
+     0,
+     1,
+     5,
+     1,
+     0,
+     4,
+     1,
+     4,
+     3,
+     5,
+     4
+    ],
+    "pits": [
+     8,
+     9
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-41",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    0,
+    3,
+    2,
+    1,
+    2,
+    0,
+    0,
+    2,
+    4,
+    0
+   ],
+   "pits": [
+    23,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    9,
+    10
+   ],
+   "encoded": [
+    2,
+    0,
+    0,
+    2,
+    4,
+    0,
+    1,
+    1,
+    0,
+    3,
+    2,
+    1,
+    9,
+    23
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     1,
+     3,
+     2,
+     1,
+     2,
+     0,
+     0,
+     2,
+     0,
+     1
+    ],
+    "pits": [
+     23,
+     9
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-14",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    6,
+    0,
+    3,
+    4,
+    3,
+    4,
+    5,
+    0,
+    3,
+    3
+   ],
+   "pits": [
+    9,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    4,
+    5,
+    0,
+    3,
+    3,
+    3,
+    3,
+    6,
+    0,
+    3,
+    4,
+    2,
+    9
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     4,
+     4,
+     0,
+     1,
+     4,
+     5,
+     4,
+     5,
+     6,
+     1,
+     3,
+     0
+    ],
+    "pits": [
+     9,
+     2
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-42",
+   "player": 1,
+   "holes": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    2,
+    4,
+    3,
+    4,
+    1,
+    0
+   ],
+   "pits": [
+    22,
+    10
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "encoded": [
+    2,
+    4,
+    3,
+    4,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    10,
+    22
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     1,
+     1,
+     1,
+     0,
+     2,
+     4,
+     3,
+     0,
+     2,
+     1
+    ],
+    "pits": [
+     22,
+     10
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-43",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    2,
+    4,
+    0,
+    4,
+    7
+   ],
+   "pits": [
+    14,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    2,
+    3,
+    3,
+    4,
+    2,
+    4,
+    0,
+    4,
+    7,
+    14,
+    1
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     1,
+     0,
+     4,
+     0,
+     5,
+     3,
+     5,
+     1,
+     4,
+     7
+    ],
+    "pits": [
+     14,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-44",
+   "player": 0,
+   "holes": [
+    6,
+    4,
+    3,
+    3,
+    3,
+    5,
+    2,
+    6,
+    3,
+    3,
+    1,
+    1
+   ],
+   "pits": [
+    2,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    6,
+    4,
+    3,
+    3,
+    3,
+    5,
+    2,
+    6,
+    3,
+    3,
+    1,
+    1,
+    2,
+    6
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     2,
+     7,
+     0,
+     1,
+     6,
+     3,
+     6,
+     2,
+     1,
+     6,
+     2,
+     4
+    ],
+    "pits": [
+     2,
+     6
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-45",
+   "player": 1,
+   "holes": [
+    0,
+    7,
+    5,
+    7,
+    5,
+    4,
+    2,
+    9,
+    2,
+    1,
+    1,
+    2
+   ],
+   "pits": [
+    3,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    9,
+    2,
+    1,
+    1,
+    2,
+    0,
+    7,
+    5,
+    7,
+    5,
+    4,
+    0,
+    3
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     1,
+     7,
+     5,
+     7,
+     5,
+     4,
+     2,
+     9,
+     0,
+     2,
+     0,
+     3
+    ],
+    "pits": [
+     3,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-37",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0
+   ],
+   "pits": [
+    19,
+    17
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "encoded": [
+    1,
+    1,
+    2,
+    2,
+    3,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    0,
+    19,
+    17
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     0,
+     3,
+     4,
+     1,
+     0,
+     0,
+     1,
+     1,
+     0,
+     0
+    ],
+    "pits": [
+     20,
+     17
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-38",
+   "player": 1,
+   "holes": [
+    1,
+    4,
+    4,
+    1,
+    4,
+    3,
+    2,
+    2,
+    3,
+    2,
+    3,
+    4
+   ],
+   "pits": [
+    12,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    3,
+    2,
+    3,
+    4,
+    1,
+    4,
+    4,
+    1,
+    4,
+    3,
+    3,
+    12
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     3,
+     2,
+     0,
+     4,
+     1,
+     7,
+     2,
+     3,
+     4,
+     1,
+     1,
+     2
+    ],
+    "pits": [
+     12,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-15",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    2,
+    1,
+    0,
+    2,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   "pits": [
+    3,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    0,
+    2,
+    28,
+    3
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     3,
+     0,
+     1,
+     0,
+     3,
+     1,
+     1,
+     3,
+     0,
+     3
+    ],
+    "pits": [
+     3,
+     28
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-16",
+   "player": 0,
+   "holes": [
+    6,
+    2,
+    4,
+    3,
+    4,
+    7,
+    4,
+    2,
+    6,
+    3,
+    2,
+    3
+   ],
+   "pits": [
+    0,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    6,
+    2,
+    4,
+    3,
+    4,
+    7,
+    4,
+    2,
+    6,
+    3,
+    2,
+    3,
+    0,
+    2
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     5,
+     0,
+     5,
+     8,
+     5,
+     0,
+     7,
+     4,
+     0,
+     4
+    ],
+    "pits": [
+     0,
+     2
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-39",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    3,
+    4,
+    6,
+    7,
+    1,
+    3,
+    2,
+    7,
+    2,
+    4
+   ],
+   "pits": [
+    0,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    3,
+    4,
+    6,
+    7,
+    1,
+    3,
+    2,
+    7,
+    2,
+    4,
+    0,
+    4
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     1,
+     4,
+     4,
+     0,
+     7,
+     1,
+     3,
+     5,
+     0,
+     9,
+     4,
+     0
+    ],
+    "pits": [
+     6,
+     4
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-46",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    2,
+    5,
+    0,
+    4,
+    3,
+    4,
+    5,
+    1,
+    5,
+    3
+   ],
+   "pits": [
+    2,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    4,
+    5,
+    1,
+    5,
+    3,
+    3,
+    3,
+    2,
+    5,
+    0,
+    4,
+    8,
+    2
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     4,
+     4,
+     3,
+     6,
+     1,
+     4,
+     3,
+     4,
+     5,
+     0,
+     0,
+     4
+    ],
+    "pits": [
+     2,
+     8
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-40",
+   "player": 0,
+   "holes": [
+    5,
+    0,
+    3,
+    4,
+    3,
+    1,
+    3,
+    5,
+    3,
+    1,
+    1,
+    3
+   ],
+   "pits": [
+    8,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    5,
+    0,
+    3,
+    4,
+    3,
+    1,
+    3,
+    5,
+    3,
+    1,
+    1,
+    3,
+    8,
+    8
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     1,
+     6,
+     2,
+     6,
+     2,
+     0,
+     0,
+     4,
+     6
+    ],
+    "pits": [
+     9,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-17",
+   "player": 1,
+   "holes": [
+    0,
+    2,
+    3,
+    0,
+    2,
+    1,
+    1,
+    1,
+    0,
+    0,
+    2,
+    2
+   ],
+   "pits": [
+    6,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    1,
+    0,
+    0,
+    2,
+    2,
+    0,
+    2,
+    3,
+    0,
+    2,
+    1,
+    28,
+    6
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     3,
+     0,
+     2,
+     1,
+     1,
+     0,
+     1,
+     0,
+     2,
+     2
+    ],
+    "pits": [
+     6,
+     28
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-47",
+   "player": 1,
+   "holes": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    3,
+    3,
+    2,
+    1,
+    0,
+    3,
+    2
+   ],
+   "pits": [
+    5,
+    27
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    2,
+    1,
+    0,
+    3,
+    2,
+    1,
+    0,
+    1,
+    0,
+    0,
+    3,
+    27,
+    5
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     1,
+     0,
+     0,
+     3,
+     3,
+     2,
+     1,
+     0,
+     3,
+     0
+    ],
+    "pits": [
+     5,
+     27
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-48",
+   "player": 0,
+   "holes": [
+    5,
+    4,
+    1,
+    5,
+    2,
+    1,
+    6,
+    10,
+    3,
+    6,
+    1,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    5,
+    4,
+    1,
+    5,
+    2,
+    1,
+    6,
+    10,
+    3,
+    6,
+    1,
+    4,
+    0,
+    0
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     7,
+     2,
+     0,
+     8,
+     5,
+     2,
+     1,
+     1,
+     5,
+     8,
+     3,
+     6
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-41",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    1,
+    5,
+    4,
+    3,
+    5,
+    5,
+    1,
+    1,
+    6,
+    3
+   ],
+   "pits": [
+    3,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    1,
+    5,
+    4,
+    3,
+    5,
+    5,
+    1,
+    1,
+    6,
+    3,
+    3,
+    9
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     2,
+     2,
+     1,
+     1,
+     5,
+     4,
+     6,
+     6,
+     0,
+     0,
+     7,
+     0
+    ],
+    "pits": [
+     5,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-49",
+   "player": 1,
+   "holes": [
+    2,
+    6,
+    2,
+    3,
+    2,
+    2,
+    2,
+    1,
+    3,
+    1,
+    3,
+    1
+   ],
+   "pits": [
+    16,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    3,
+    1,
+    3,
+    1,
+    2,
+    6,
+    2,
+    3,
+    2,
+    2,
+    4,
+    16
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     1,
+     8,
+     4,
+     1,
+     3,
+     3,
+     1,
+     0,
+     1,
+     3,
+     0,
+     3
+    ],
+    "pits": [
+     16,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-42",
+   "player": 1,
+   "holes": [
+    3,
+    4,
+    4,
+    2,
+    3,
+    5,
+    3,
+    5,
+    1,
+    0,
+    6,
+    5
+   ],
+   "pits": [
+    2,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    5,
+    1,
+    0,
+    6,
+    5,
+    3,
+    4,
+    4,
+    2,
+    3,
+    5,
+    5,
+    2
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     5,
+     3,
+     0,
+     6,
+     4,
+     6,
+     0,
+     1,
+     1,
+     6
+    ],
+    "pits": [
+     2,
+     10
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-43",
+   "player": 0,
+   "holes": [
+    0,
+    2,
+    0,
+    2,
+    1,
+    0,
+    6,
+    5,
+    1,
+    4,
+    2,
+    0
+   ],
+   "pits": [
+    25,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    3,
+    4
+   ],
+   "encoded": [
+    0,
+    2,
+    0,
+    2,
+    1,
+    0,
+    6,
+    5,
+    1,
+    4,
+    2,
+    0,
+    25,
+    0
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     0,
+     2,
+     0,
+     1,
+     0,
+     5,
+     1,
+     4,
+     2,
+     0
+    ],
+    "pits": [
+     31,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-44",
+   "player": 1,
+   "holes": [
+    5,
+    1,
+    3,
+    2,
+    6,
+    3,
+    2,
+    5,
+    3,
+    7,
+    3,
+    4
+   ],
+   "pits": [
+    2,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    5,
+    3,
+    7,
+    3,
+    4,
+    5,
+    1,
+    3,
+    2,
+    6,
+    3,
+    2,
+    2
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     4,
+     3,
+     7,
+     0,
+     1,
+     6,
+     0,
+     8,
+     4,
+     5
+    ],
+    "pits": [
+     2,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-45",
+   "player": 1,
+   "holes": [
+    3,
+    2,
+    1,
+    2,
+    1,
+    3,
+    3,
+    2,
+    1,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    16,
+    11
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    3,
+    2,
+    1,
+    2,
+    0,
+    1,
+    3,
+    2,
+    1,
+    2,
+    1,
+    3,
+    11,
+    16
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     3,
+     4,
+     1,
+     0,
+     1,
+     4,
+     3,
+     2,
+     1,
+     1
+    ],
+    "pits": [
+     16,
+     12
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-50",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    0,
+    3,
+    2,
+    2
+   ],
+   "pits": [
+    24,
+    7
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    2,
+    1,
+    1,
+    1,
+    1,
+    2,
+    0,
+    3,
+    2,
+    2,
+    24,
+    7
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     0,
+     2,
+     0,
+     2,
+     0,
+     3,
+     1,
+     3,
+     2,
+     2
+    ],
+    "pits": [
+     24,
+     7
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-46",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    6,
+    3,
+    6,
+    4,
+    1,
+    5,
+    4,
+    2,
+    7,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    5,
+    4,
+    2,
+    7,
+    4,
+    3,
+    3,
+    6,
+    3,
+    6,
+    4,
+    0,
+    0
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     7,
+     4,
+     7,
+     0,
+     2,
+     6,
+     5,
+     3,
+     1,
+     5
+    ],
+    "pits": [
+     0,
+     4
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-51",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    2,
+    2,
+    2,
+    3,
+    2,
+    2,
+    3,
+    2,
+    0,
+    1
+   ],
+   "pits": [
+    1,
+    23
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    2,
+    2,
+    2,
+    3,
+    2,
+    2,
+    3,
+    2,
+    0,
+    1,
+    1,
+    23
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     2,
+     3,
+     0,
+     3,
+     0,
+     4,
+     3,
+     0,
+     4,
+     3,
+     1,
+     1
+    ],
+    "pits": [
+     1,
+     23
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-52",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    4,
+    3,
+    1,
+    1,
+    2
+   ],
+   "pits": [
+    5,
+    29
+   ],
+   "turns": 0,
+   "legal_moves": [
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    1,
+    0,
+    4,
+    3,
+    1,
+    1,
+    2,
+    5,
+    29
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     1,
+     4,
+     3,
+     1,
+     1,
+     2
+    ],
+    "pits": [
+     5,
+     29
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-47",
+   "player": 0,
+   "holes": [
+    4,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1
+   ],
+   "pits": [
+    31,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    1,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    1,
+    31,
+    1
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     5,
+     1,
+     0,
+     3,
+     2,
+     0,
+     2,
+     0,
+     2,
+     0,
+     0,
+     0
+    ],
+    "pits": [
+     32,
+     1
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-48",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    2,
+    4,
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    1,
+    2
+   ],
+   "pits": [
+    1,
+    20
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    2,
+    4,
+    3,
+    1,
+    3,
+    3,
+    3,
+    0,
+    1,
+    2,
+    1,
+    20
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     5,
+     1,
+     1,
+     3,
+     5,
+     5,
+     0,
+     0,
+     3,
+     0
+    ],
+    "pits": [
+     2,
+     20
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-18",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    2,
+    1,
+    0,
+    2,
+    3,
+    0,
+    0,
+    1,
+    3,
+    2
+   ],
+   "pits": [
+    9,
+    22
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    2,
+    1,
+    0,
+    2,
+    3,
+    0,
+    0,
+    1,
+    3,
+    2,
+    9,
+    22
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     0,
+     2,
+     1,
+     2,
+     3,
+     0,
+     0,
+     1,
+     3,
+     2
+    ],
+    "pits": [
+     9,
+     22
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-19",
+   "player": 0,
+   "holes": [
+    1,
+    2,
+    1,
+    0,
+    1,
+    1,
+    3,
+    2,
+    0,
+    0,
+    1,
+    1
+   ],
+   "pits": [
+    22,
+    13
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    2,
+    1,
+    0,
+    1,
+    1,
+    3,
+    2,
+    0,
+    0,
+    1,
+    1,
+    22,
+    13
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     0,
+     1,
+     1,
+     1,
+     3,
+     2,
+     0,
+     0,
+     1,
+     1
+    ],
+    "pits": [
+     22,
+     13
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-49",
+   "player": 0,
+   "holes": [
+    3,
+    6,
+    7,
+    6,
+    5,
+    2,
+    2,
+    1,
+    4,
+    3,
+    5,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    6,
+    7,
+    6,
+    5,
+    2,
+    2,
+    1,
+    4,
+    3,
+    5,
+    4,
+    0,
+    0
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     2,
+     1,
+     10,
+     1,
+     6,
+     0,
+     5,
+     2,
+     3,
+     9,
+     0
+    ],
+    "pits": [
+     8,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-20",
+   "player": 1,
+   "holes": [
+    3,
+    7,
+    3,
+    2,
+    1,
+    5,
+    2,
+    3,
+    3,
+    5,
+    2,
+    6
+   ],
+   "pits": [
+    2,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    3,
+    3,
+    5,
+    2,
+    6,
+    3,
+    7,
+    3,
+    2,
+    1,
+    5,
+    4,
+    2
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     4,
+     8,
+     0,
+     3,
+     2,
+     6,
+     0,
+     4,
+     4,
+     1,
+     3,
+     7
+    ],
+    "pits": [
+     2,
+     4
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-50",
+   "player": 0,
+   "holes": [
+    0,
+    6,
+    1,
+    0,
+    3,
+    3,
+    2,
+    0,
+    2,
+    1,
+    3,
+    2
+   ],
+   "pits": [
+    15,
+    10
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    6,
+    1,
+    0,
+    3,
+    3,
+    2,
+    0,
+    2,
+    1,
+    3,
+    2,
+    15,
+    10
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     0,
+     1,
+     3,
+     3,
+     2,
+     0,
+     0,
+     1,
+     3,
+     2
+    ],
+    "pits": [
+     17,
+     10
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-53",
+   "player": 0,
+   "holes": [
+    4,
+    3,
+    1,
+    2,
+    4,
+    0,
+    0,
+    2,
+    2,
+    7,
+    3,
+    1
+   ],
+   "pits": [
+    9,
+    10
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "encoded": [
+    4,
+    3,
+    1,
+    2,
+    4,
+    0,
+    0,
+    2,
+    2,
+    7,
+    3,
+    1,
+    9,
+    10
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     4,
+     3,
+     0,
+     0,
+     5,
+     1,
+     1,
+     2,
+     2,
+     7,
+     3,
+     1
+    ],
+    "pits": [
+     9,
+     10
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-54",
+   "player": 0,
+   "holes": [
+    3,
+    2,
+    1,
+    1,
+    0,
+    3,
+    1,
+    0,
+    1,
+    2,
+    1,
+    1
+   ],
+   "pits": [
+    2,
+    30
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "encoded": [
+    3,
+    2,
+    1,
+    1,
+    0,
+    3,
+    1,
+    0,
+    1,
+    2,
+    1,
+    1,
+    2,
+    30
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     0,
+     3,
+     1,
+     1,
+     0,
+     1,
+     0,
+     2,
+     3,
+     1,
+     2,
+     2
+    ],
+    "pits": [
+     2,
+     30
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-51",
+   "player": 0,
+   "holes": [
+    7,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    4,
+    2,
+    1,
+    1,
+    1
+   ],
+   "pits": [
+    7,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    7,
+    3,
+    3,
+    4,
+    4,
+    4,
+    3,
+    4,
+    2,
+    1,
+    1,
+    1,
+    7,
+    4
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     8,
+     0,
+     4,
+     5,
+     5,
+     1,
+     0,
+     5,
+     3,
+     0,
+     2,
+     0
+    ],
+    "pits": [
+     11,
+     4
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-55",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    0,
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    1,
+    1,
+    2
+   ],
+   "pits": [
+    8,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    2,
+    0,
+    1,
+    1,
+    2,
+    1,
+    3,
+    0,
+    1,
+    0,
+    1,
+    28,
+    8
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     2,
+     4,
+     1,
+     1,
+     0,
+     1,
+     0,
+     0,
+     1,
+     0,
+     2,
+     0
+    ],
+    "pits": [
+     8,
+     28
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-56",
+   "player": 1,
+   "holes": [
+    4,
+    3,
+    4,
+    3,
+    5,
+    3,
+    2,
+    0,
+    2,
+    6,
+    4,
+    5
+   ],
+   "pits": [
+    3,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    0,
+    2,
+    6,
+    4,
+    5,
+    4,
+    3,
+    4,
+    3,
+    5,
+    3,
+    4,
+    3
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     6,
+     5,
+     6,
+     5,
+     7,
+     1,
+     1,
+     2,
+     1,
+     0,
+     6,
+     1
+    ],
+    "pits": [
+     3,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-52",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    3,
+    2,
+    3,
+    3,
+    4,
+    4,
+    0,
+    4,
+    4,
+    5
+   ],
+   "pits": [
+    7,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    4,
+    0,
+    4,
+    4,
+    5,
+    1,
+    3,
+    3,
+    2,
+    3,
+    3,
+    5,
+    7
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     0,
+     3,
+     4,
+     0,
+     5,
+     5,
+     1,
+     1,
+     5,
+     6
+    ],
+    "pits": [
+     7,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-21",
+   "player": 1,
+   "holes": [
+    3,
+    0,
+    1,
+    3,
+    2,
+    2,
+    0,
+    0,
+    1,
+    2,
+    0,
+    0
+   ],
+   "pits": [
+    28,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    8,
+    9
+   ],
+   "encoded": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    0,
+    3,
+    0,
+    1,
+    3,
+    2,
+    2,
+    6,
+    28
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     2,
+     4,
+     0,
+     3,
+     1,
+     1,
+     0,
+     0,
+     1,
+     1
+    ],
+    "pits": [
+     28,
+     6
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-53",
+   "player": 1,
+   "holes": [
+    5,
+    4,
+    2,
+    3,
+    5,
+    4,
+    2,
+    3,
+    3,
+    3,
+    2,
+    7
+   ],
+   "pits": [
+    1,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    3,
+    3,
+    3,
+    2,
+    7,
+    5,
+    4,
+    2,
+    3,
+    5,
+    4,
+    4,
+    1
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     0,
+     5,
+     7,
+     0,
+     1,
+     1,
+     5,
+     0,
+     1,
+     9
+    ],
+    "pits": [
+     1,
+     10
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-54",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    3,
+    1,
+    1,
+    5,
+    6,
+    2,
+    1,
+    0,
+    3,
+    3
+   ],
+   "pits": [
+    10,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    3,
+    1,
+    1,
+    5,
+    6,
+    2,
+    1,
+    0,
+    3,
+    3,
+    10,
+    8
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     4,
+     5,
+     1,
+     2,
+     2,
+     1,
+     0,
+     4,
+     3,
+     0,
+     1,
+     5
+    ],
+    "pits": [
+     12,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-22",
+   "player": 0,
+   "holes": [
+    3,
+    0,
+    2,
+    6,
+    3,
+    4,
+    6,
+    2,
+    4,
+    3,
+    5,
+    2
+   ],
+   "pits": [
+    2,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    0,
+    2,
+    6,
+    3,
+    4,
+    6,
+    2,
+    4,
+    3,
+    5,
+    2,
+    2,
+    6
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     4,
+     1,
+     3,
+     7,
+     1,
+     5,
+     7,
+     0,
+     5,
+     4,
+     0,
+     3
+    ],
+    "pits": [
+     2,
+     6
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-57",
+   "player": 1,
+   "holes": [
+    1,
+    4,
+    1,
+    1,
+    2,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   "pits": [
+    16,
+    11
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    4,
+    1,
+    1,
+    2,
+    1,
+    11,
+    16
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     3,
+     6,
+     1,
+     2,
+     0,
+     2,
+     2,
+     0,
+     3,
+     1,
+     0,
+     1
+    ],
+    "pits": [
+     16,
+     11
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-55",
+   "player": 0,
+   "holes": [
+    2,
+    5,
+    7,
+    3,
+    2,
+    6,
+    2,
+    3,
+    2,
+    6,
+    3,
+    4
+   ],
+   "pits": [
+    3,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    5,
+    7,
+    3,
+    2,
+    6,
+    2,
+    3,
+    2,
+    6,
+    3,
+    4,
+    3,
+    0
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     10,
+     6,
+     1,
+     8,
+     1,
+     0,
+     0,
+     1,
+     5,
+     6
+    ],
+    "pits": [
+     8,
+     0
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-58",
+   "player": 0,
+   "holes": [
+    1,
+    0,
+    1,
+    1,
+    3,
+    5,
+    3,
+    0,
+    2,
+    6,
+    3,
+    4
+   ],
+   "pits": [
+    4,
+    15
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    0,
+    1,
+    1,
+    3,
+    5,
+    3,
+    0,
+    2,
+    6,
+    3,
+    4,
+    4,
+    15
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     11,
+     0,
+     5,
+     1,
+     0,
+     5,
+     1,
+     4,
+     1,
+     0
+    ],
+    "pits": [
+     4,
+     15
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-23",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    1,
+    5,
+    3,
+    4,
+    9,
+    3,
+    3,
+    4,
+    2,
+    7
+   ],
+   "pits": [
+    1,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    9,
+    3,
+    3,
+    4,
+    2,
+    7,
+    3,
+    3,
+    1,
+    5,
+    3,
+    4,
+    0,
+    1
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     2,
+     6,
+     4,
+     0,
+     10,
+     1,
+     5,
+     6,
+     1,
+     8
+    ],
+    "pits": [
+     1,
+     0
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-59",
+   "player": 0,
+   "holes": [
+    6,
+    6,
+    3,
+    1,
+    3,
+    2,
+    1,
+    2,
+    3,
+    3,
+    2,
+    4
+   ],
+   "pits": [
+    10,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    6,
+    6,
+    3,
+    1,
+    3,
+    2,
+    1,
+    2,
+    3,
+    3,
+    2,
+    4,
+    10,
+    2
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     1,
+     8,
+     2,
+     4,
+     6,
+     0,
+     4,
+     1,
+     1,
+     5,
+     4,
+     0
+    ],
+    "pits": [
+     10,
+     2
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-56",
+   "player": 1,
+   "holes": [
+    4,
+    1,
+    0,
+    0,
+    4,
+    1,
+    1,
+    2,
+    2,
+    1,
+    1,
+    0
+   ],
+   "pits": [
+    24,
+    7
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "encoded": [
+    1,
+    2,
+    2,
+    1,
+    1,
+    0,
+    4,
+    1,
+    0,
+    0,
+    4,
+    1,
+    7,
+    24
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     1,
+     1,
+     5,
+     0,
+     2,
+     0,
+     3,
+     1,
+     1,
+     1
+    ],
+    "pits": [
+     24,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-57",
+   "player": 1,
+   "holes": [
+    4,
+    5,
+    4,
+    3,
+    7,
+    6,
+    0,
+    1,
+    3,
+    1,
+    3,
+    4
+   ],
+   "pits": [
+    4,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    1,
+    3,
+    1,
+    3,
+    4,
+    4,
+    5,
+    4,
+    3,
+    7,
+    6,
+    3,
+    4
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     5,
+     0,
+     8,
+     7,
+     1,
+     0,
+     4,
+     0,
+     4,
+     1
+    ],
+    "pits": [
+     4,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-58",
+   "player": 0,
+   "holes": [
+    2,
+    5,
+    2,
+    0,
+    3,
+    3,
+    5,
+    3,
+    5,
+    5,
+    6,
+    4
+   ],
+   "pits": [
+    0,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    5,
+    2,
+    0,
+    3,
+    3,
+    5,
+    3,
+    5,
+    5,
+    6,
+    4,
+    0,
+    5
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     1,
+     7,
+     1,
+     0,
+     5,
+     1,
+     0,
+     4,
+     6,
+     0,
+     7,
+     5
+    ],
+    "pits": [
+     6,
+     5
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-59",
+   "player": 0,
+   "holes": [
+    2,
+    4,
+    1,
+    3,
+    4,
+    6,
+    3,
+    3,
+    6,
+    6,
+    1,
+    2
+   ],
+   "pits": [
+    1,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    4,
+    1,
+    3,
+    4,
+    6,
+    3,
+    3,
+    6,
+    6,
+    1,
+    2,
+    1,
+    6
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     1,
+     6,
+     3,
+     1,
+     0,
+     9,
+     0,
+     1,
+     2,
+     9,
+     4,
+     0
+    ],
+    "pits": [
+     6,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-60",
+   "player": 0,
+   "holes": [
+    4,
+    3,
+    2,
+    3,
+    5,
+    1,
+    4,
+    3,
+    3,
+    2,
+    4,
+    3
+   ],
+   "pits": [
+    9,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    3,
+    2,
+    3,
+    5,
+    1,
+    4,
+    3,
+    3,
+    2,
+    4,
+    3,
+    9,
+    2
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     2,
+     1,
+     2,
+     4,
+     0,
+     6,
+     1,
+     5,
+     0,
+     6
+    ],
+    "pits": [
+     11,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-61",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    4,
+    2,
+    1,
+    0,
+    0,
+    2,
+    1,
+    4,
+    1,
+    2
+   ],
+   "pits": [
+    12,
+    17
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    2,
+    1,
+    4,
+    1,
+    2,
+    1,
+    1,
+    4,
+    2,
+    1,
+    0,
+    17,
+    12
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     0,
+     3,
+     2,
+     1,
+     1,
+     0,
+     2,
+     5,
+     1,
+     0
+    ],
+    "pits": [
+     12,
+     19
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-60",
+   "player": 0,
+   "holes": [
+    2,
+    0,
+    1,
+    1,
+    2,
+    3,
+    1,
+    2,
+    0,
+    0,
+    1,
+    1
+   ],
+   "pits": [
+    34,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    0,
+    1,
+    1,
+    2,
+    3,
+    1,
+    2,
+    0,
+    0,
+    1,
+    1,
+    34,
+    0
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     1,
+     1,
+     2,
+     0,
+     2,
+     3,
+     1,
+     0,
+     1,
+     1
+    ],
+    "pits": [
+     34,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-62",
+   "player": 0,
+   "holes": [
+    3,
+    5,
+    2,
+    4,
+    2,
+    1,
+    2,
+    4,
+    1,
+    6,
+    2,
+    1
+   ],
+   "pits": [
+    11,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    5,
+    2,
+    4,
+    2,
+    1,
+    2,
+    4,
+    1,
+    6,
+    2,
+    1,
+    11,
+    4
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     4,
+     6,
+     3,
+     5,
+     1,
+     2,
+     0,
+     0,
+     2,
+     0,
+     3,
+     2
+    ],
+    "pits": [
+     16,
+     4
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-61",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    3,
+    3,
+    4,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2
+   ],
+   "pits": [
+    2,
+    21
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    3,
+    3,
+    4,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    2,
+    2,
+    21
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     3,
+     3,
+     0,
+     1,
+     6,
+     4,
+     1,
+     2,
+     0,
+     2,
+     3,
+     0
+    ],
+    "pits": [
+     2,
+     21
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-62",
+   "player": 1,
+   "holes": [
+    2,
+    6,
+    6,
+    1,
+    4,
+    4,
+    3,
+    5,
+    3,
+    3,
+    1,
+    4
+   ],
+   "pits": [
+    5,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    5,
+    3,
+    3,
+    1,
+    4,
+    2,
+    6,
+    6,
+    1,
+    4,
+    4,
+    1,
+    5
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     4,
+     1,
+     7,
+     2,
+     5,
+     5,
+     1,
+     7,
+     0,
+     1,
+     3,
+     6
+    ],
+    "pits": [
+     5,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-63",
+   "player": 0,
+   "holes": [
+    3,
+    4,
+    8,
+    4,
+    8,
+    6,
+    2,
+    0,
+    0,
+    1,
+    4,
+    6
+   ],
+   "pits": [
+    0,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    3,
+    4,
+    8,
+    4,
+    8,
+    6,
+    2,
+    0,
+    0,
+    1,
+    4,
+    6,
+    0,
+    2
+   ],
+   "move": 5,
+   "expect": {
+    "holes": [
+     2,
+     6,
+     0,
+     5,
+     1,
+     2,
+     8,
+     0,
+     10,
+     3,
+     8,
+     0
+    ],
+    "pits": [
+     1,
+     2
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-63",
+   "player": 1,
+   "holes": [
+    5,
+    1,
+    8,
+    5,
+    3,
+    5,
+    1,
+    3,
+    6,
+    3,
+    3,
+    2
+   ],
+   "pits": [
+    2,
+    1
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    3,
+    6,
+    3,
+    3,
+    2,
+    5,
+    1,
+    8,
+    5,
+    3,
+    5,
+    1,
+    2
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     9,
+     0,
+     4,
+     6,
+     2,
+     4,
+     7,
+     0,
+     1,
+     4
+    ],
+    "pits": [
+     2,
+     1
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-64",
+   "player": 1,
+   "holes": [
+    1,
+    0,
+    0,
+    3,
+    3,
+    1,
+    0,
+    0,
+    3,
+    2,
+    1,
+    0
+   ],
+   "pits": [
+    6,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    8,
+    9,
+    10
+   ],
+   "encoded": [
+    0,
+    0,
+    3,
+    2,
+    1,
+    0,
+    1,
+    0,
+    0,
+    3,
+    3,
+    1,
+    28,
+    6
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     0,
+     0,
+     0,
+     3,
+     3,
+     1,
+     0,
+     0,
+     3,
+     0,
+     2,
+     1
+    ],
+    "pits": [
+     6,
+     29
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-64",
+   "player": 1,
+   "holes": [
+    4,
+    3,
+    1,
+    2,
+    5,
+    1,
+    5,
+    2,
+    3,
+    2,
+    1,
+    2
+   ],
+   "pits": [
+    13,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    2,
+    3,
+    2,
+    1,
+    2,
+    4,
+    3,
+    1,
+    2,
+    5,
+    1,
+    4,
+    13
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     7,
+     1,
+     1,
+     4,
+     1,
+     3,
+     0,
+     4,
+     2,
+     5,
+     1,
+     2
+    ],
+    "pits": [
+     13,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-65",
+   "player": 0,
+   "holes": [
+    1,
+    5,
+    0,
+    2,
+    0,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    1
+   ],
+   "pits": [
+    0,
+    28
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    5
+   ],
+   "encoded": [
+    1,
+    5,
+    0,
+    2,
+    0,
+    3,
+    3,
+    2,
+    1,
+    1,
+    1,
+    1,
+    0,
+    28
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     1,
+     3,
+     1,
+     4,
+     4,
+     0,
+     2,
+     2,
+     0,
+     0
+    ],
+    "pits": [
+     2,
+     28
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-66",
+   "player": 1,
+   "holes": [
+    1,
+    5,
+    0,
+    3,
+    4,
+    2,
+    2,
+    2,
+    2,
+    3,
+    1,
+    1
+   ],
+   "pits": [
+    19,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    2,
+    2,
+    3,
+    1,
+    1,
+    1,
+    5,
+    0,
+    3,
+    4,
+    2,
+    3,
+    19
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     1,
+     4,
+     0,
+     3,
+     3,
+     1,
+     3,
+     0,
+     2,
+     2
+    ],
+    "pits": [
+     19,
+     8
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-65",
+   "player": 0,
+   "holes": [
+    4,
+    1,
+    1,
+    2,
+    3,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2
+   ],
+   "pits": [
+    26,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    4,
+    1,
+    1,
+    2,
+    3,
+    2,
+    2,
+    1,
+    1,
+    2,
+    1,
+    2,
+    26,
+    0
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     1,
+     1,
+     5,
+     0,
+     1,
+     3,
+     3,
+     1,
+     2,
+     3
+    ],
+    "pits": [
+     26,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-67",
+   "player": 1,
+   "holes": [
+    1,
+    1,
+    3,
+    4,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    3,
+    2
+   ],
+   "pits": [
+    22,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    1,
+    1,
+    0,
+    3,
+    2,
+    1,
+    1,
+    3,
+    4,
+    0,
+    1,
+    8,
+    22
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     3,
+     0,
+     0,
+     1,
+     2,
+     3,
+     3,
+     0,
+     1,
+     2,
+     1,
+     1
+    ],
+    "pits": [
+     22,
+     9
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-68",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    2,
+    2,
+    6,
+    3,
+    6,
+    7,
+    2,
+    1,
+    5,
+    3
+   ],
+   "pits": [
+    1,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    2,
+    2,
+    6,
+    3,
+    6,
+    7,
+    2,
+    1,
+    5,
+    3,
+    1,
+    6
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     3,
+     0,
+     7,
+     4,
+     0,
+     8,
+     3,
+     2,
+     0,
+     4
+    ],
+    "pits": [
+     7,
+     6
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-captured-69",
+   "player": 0,
+   "holes": [
+    0,
+    1,
+    1,
+    5,
+    5,
+    2,
+    2,
+    0,
+    1,
+    2,
+    3,
+    3
+   ],
+   "pits": [
+    0,
+    23
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    1,
+    1,
+    5,
+    5,
+    2,
+    2,
+    0,
+    1,
+    2,
+    3,
+    3,
+    0,
+    23
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     1,
+     1,
+     6,
+     0,
+     3,
+     3,
+     1,
+     2,
+     0,
+     0,
+     4
+    ],
+    "pits": [
+     3,
+     23
+    ],
+    "turn_ended": "captured",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-66",
+   "player": 1,
+   "holes": [
+    4,
+    4,
+    2,
+    3,
+    2,
+    1,
+    2,
+    4,
+    0,
+    1,
+    3,
+    2
+   ],
+   "pits": [
+    16,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    4,
+    0,
+    1,
+    3,
+    2,
+    4,
+    4,
+    2,
+    3,
+    2,
+    1,
+    4,
+    16
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     0,
+     4,
+     1,
+     2,
+     6,
+     5,
+     3,
+     1,
+     0,
+     3,
+     0,
+     3
+    ],
+    "pits": [
+     16,
+     4
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-captured-70",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    3,
+    2,
+    3,
+    4,
+    3,
+    3,
+    2,
+    1,
+    3,
+    3
+   ],
+   "pits": [
+    9,
+    8
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    3,
+    2,
+    1,
+    3,
+    3,
+    1,
+    3,
+    3,
+    2,
+    3,
+    4,
+    8,
+    9
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     0,
+     3,
+     4,
+     5,
+     0,
+     1,
+     4,
+     3,
+     1,
+     4
+    ],
+    "pits": [
+     9,
+     12
+    ],
+    "turn_ended": "captured",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-67",
+   "player": 1,
+   "holes": [
+    2,
+    2,
+    4,
+    1,
+    0,
+    3,
+    0,
+    0,
+    7,
+    2,
+    0,
+    0
+   ],
+   "pits": [
+    25,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    8,
+    9
+   ],
+   "encoded": [
+    0,
+    0,
+    7,
+    2,
+    0,
+    0,
+    2,
+    2,
+    4,
+    1,
+    0,
+    3,
+    2,
+    25
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     4,
+     0,
+     6,
+     1,
+     2,
+     1,
+     1,
+     1,
+     1,
+     0,
+     2,
+     2
+    ],
+    "pits": [
+     25,
+     2
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-68",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    4,
+    7,
+    4,
+    7,
+    2,
+    2,
+    3,
+    3,
+    1,
+    0
+   ],
+   "pits": [
+    10,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    4,
+    7,
+    4,
+    7,
+    2,
+    2,
+    3,
+    3,
+    1,
+    0,
+    10,
+    2
+   ],
+   "move": 4,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     6,
+     1,
+     0,
+     10,
+     0,
+     5,
+     2,
+     6,
+     4,
+     1
+    ],
+    "pits": [
+     10,
+     2
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opponent_side-69",
+   "player": 1,
+   "holes": [
+    3,
+    1,
+    7,
+    3,
+    4,
+    1,
+    3,
+    2,
+    4,
+    5,
+    4,
+    2
+   ],
+   "pits": [
+    7,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    2,
+    4,
+    5,
+    4,
+    2,
+    3,
+    1,
+    7,
+    3,
+    4,
+    1,
+    2,
+    7
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     5,
+     3,
+     9,
+     1,
+     5,
+     2,
+     1,
+     0,
+     6,
+     1,
+     6,
+     0
+    ],
+    "pits": [
+     7,
+     2
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opponent_side-70",
+   "player": 1,
+   "holes": [
+    2,
+    1,
+    2,
+    0,
+    2,
+    1,
+    2,
+    1,
+    1,
+    0,
+    1,
+    1
+   ],
+   "pits": [
+    34,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    34
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     3,
+     1,
+     2,
+     1,
+     2,
+     0,
+     0,
+     1,
+     0,
+     2
+    ],
+    "pits": [
+     34,
+     0
+    ],
+    "turn_ended": "opponent_side",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-24",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    0,
+    2,
+    2,
+    2,
+    0,
+    1,
+    2,
+    0,
+    0,
+    1
+   ],
+   "pits": [
+    36,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    0,
+    2,
+    2,
+    2,
+    0,
+    1,
+    2,
+    0,
+    0,
+    1,
+    36,
+    0
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     1,
+     2,
+     2,
+     2,
+     0,
+     1,
+     2,
+     0,
+     0,
+     1
+    ],
+    "pits": [
+     36,
+     0
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-25",
+   "player": 1,
+   "holes": [
+    2,
+    4,
+    0,
+    1,
+    2,
+    2,
+    0,
+    2,
+    0,
+    1,
+    2,
+    1
+   ],
+   "pits": [
+    29,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    2,
+    0,
+    1,
+    2,
+    1,
+    2,
+    4,
+    0,
+    1,
+    2,
+    2,
+    2,
+    29
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     0,
+     5,
+     1,
+     0,
+     3,
+     0,
+     1,
+     3,
+     1,
+     1,
+     0,
+     2
+    ],
+    "pits": [
+     29,
+     2
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-26",
+   "player": 0,
+   "holes": [
+    1,
+    2,
+    4,
+    7,
+    2,
+    7,
+    1,
+    2,
+    4,
+    2,
+    4,
+    5
+   ],
+   "pits": [
+    0,
+    7
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    2,
+    4,
+    7,
+    2,
+    7,
+    1,
+    2,
+    4,
+    2,
+    4,
+    5,
+    0,
+    7
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     4,
+     3,
+     1,
+     2,
+     5,
+     1,
+     4,
+     5,
+     7,
+     0,
+     7,
+     2
+    ],
+    "pits": [
+     0,
+     7
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-27",
+   "player": 1,
+   "holes": [
+    4,
+    3,
+    4,
+    4,
+    3,
+    5,
+    4,
+    6,
+    5,
+    2,
+    1,
+    1
+   ],
+   "pits": [
+    3,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    6,
+    5,
+    2,
+    1,
+    1,
+    4,
+    3,
+    4,
+    4,
+    3,
+    5,
+    3,
+    3
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     4,
+     5,
+     5,
+     4,
+     0,
+     5,
+     7,
+     6,
+     3,
+     2,
+     1
+    ],
+    "pits": [
+     3,
+     3
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-28",
+   "player": 0,
+   "holes": [
+    2,
+    3,
+    2,
+    2,
+    1,
+    2,
+    2,
+    0,
+    2,
+    1,
+    0,
+    3
+   ],
+   "pits": [
+    15,
+    13
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    3,
+    2,
+    2,
+    1,
+    2,
+    2,
+    0,
+    2,
+    1,
+    0,
+    3,
+    15,
+    13
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     3,
+     4,
+     3,
+     1,
+     2,
+     0,
+     3,
+     1,
+     0,
+     2,
+     1,
+     0
+    ],
+    "pits": [
+     15,
+     13
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-29",
+   "player": 0,
+   "holes": [
+    2,
+    1,
+    6,
+    2,
+    2,
+    2,
+    3,
+    5,
+    3,
+    3,
+    2,
+    3
+   ],
+   "pits": [
+    2,
+    12
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    1,
+    6,
+    2,
+    2,
+    2,
+    3,
+    5,
+    3,
+    3,
+    2,
+    3,
+    2,
+    12
+   ],
+   "move": 2,
+   "expect": {
+    "holes": [
+     7,
+     2,
+     1,
+     4,
+     0,
+     2,
+     3,
+     2,
+     1,
+     0,
+     10,
+     2
+    ],
+    "pits": [
+     2,
+     12
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-30",
+   "player": 0,
+   "holes": [
+    2,
+    5,
+    3,
+    2,
+    3,
+    3,
+    1,
+    3,
+    1,
+    0,
+    2,
+    2
+   ],
+   "pits": [
+    1,
+    20
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    2,
+    5,
+    3,
+    2,
+    3,
+    3,
+    1,
+    3,
+    1,
+    0,
+    2,
+    2,
+    1,
+    20
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     4,
+     3,
+     4,
+     4,
+     0,
+     4,
+     0,
+     1,
+     0,
+     3
+    ],
+    "pits": [
+     1,
+     20
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-31",
+   "player": 1,
+   "holes": [
+    1,
+    3,
+    1,
+    1,
+    3,
+    2,
+    0,
+    4,
+    2,
+    1,
+    2,
+    1
+   ],
+   "pits": [
+    15,
+    12
+   ],
+   "turns": 0,
+   "legal_moves": [
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    0,
+    4,
+    2,
+    1,
+    2,
+    1,
+    1,
+    3,
+    1,
+    1,
+    3,
+    2,
+    12,
+    15
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     3,
+     0,
+     5,
+     1,
+     0,
+     2,
+     1,
+     3,
+     4,
+     1
+    ],
+    "pits": [
+     15,
+     12
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-32",
+   "player": 0,
+   "holes": [
+    1,
+    2,
+    1,
+    4,
+    2,
+    2,
+    3,
+    2,
+    3,
+    1,
+    3,
+    1
+   ],
+   "pits": [
+    2,
+    21
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    2,
+    1,
+    4,
+    2,
+    2,
+    3,
+    2,
+    3,
+    1,
+    3,
+    1,
+    2,
+    21
+   ],
+   "move": 0,
+   "expect": {
+    "holes": [
+     0,
+     2,
+     1,
+     6,
+     1,
+     0,
+     5,
+     1,
+     5,
+     0,
+     1,
+     3
+    ],
+    "pits": [
+     2,
+     21
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-33",
+   "player": 1,
+   "holes": [
+    3,
+    5,
+    1,
+    2,
+    2,
+    3,
+    4,
+    2,
+    2,
+    2,
+    5,
+    3
+   ],
+   "pits": [
+    9,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    2,
+    2,
+    2,
+    5,
+    3,
+    3,
+    5,
+    1,
+    2,
+    2,
+    3,
+    5,
+    9
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     0,
+     6,
+     2,
+     3,
+     0,
+     4,
+     5,
+     1,
+     3,
+     0,
+     6,
+     4
+    ],
+    "pits": [
+     9,
+     5
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-34",
+   "player": 1,
+   "holes": [
+    2,
+    3,
+    6,
+    7,
+    2,
+    3,
+    3,
+    2,
+    1,
+    4,
+    6,
+    1
+   ],
+   "pits": [
+    4,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    3,
+    2,
+    1,
+    4,
+    6,
+    1,
+    2,
+    3,
+    6,
+    7,
+    2,
+    3,
+    4,
+    4
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     4,
+     7,
+     0,
+     3,
+     4,
+     4,
+     3,
+     2,
+     5,
+     7,
+     1
+    ],
+    "pits": [
+     4,
+     4
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-35",
+   "player": 1,
+   "holes": [
+    7,
+    1,
+    4,
+    4,
+    0,
+    5,
+    2,
+    1,
+    6,
+    1,
+    2,
+    1
+   ],
+   "pits": [
+    9,
+    5
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    1,
+    6,
+    1,
+    2,
+    1,
+    7,
+    1,
+    4,
+    4,
+    0,
+    5,
+    5,
+    9
+   ],
+   "move": 6,
+   "expect": {
+    "holes": [
+     8,
+     2,
+     5,
+     0,
+     1,
+     6,
+     1,
+     3,
+     1,
+     2,
+     3,
+     2
+    ],
+    "pits": [
+     9,
+     5
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-36",
+   "player": 1,
+   "holes": [
+    3,
+    3,
+    3,
+    3,
+    2,
+    1,
+    2,
+    3,
+    0,
+    0,
+    4,
+    1
+   ],
+   "pits": [
+    5,
+    18
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    3,
+    0,
+    0,
+    4,
+    1,
+    3,
+    3,
+    3,
+    3,
+    2,
+    1,
+    18,
+    5
+   ],
+   "move": 10,
+   "expect": {
+    "holes": [
+     4,
+     4,
+     0,
+     4,
+     3,
+     2,
+     0,
+     4,
+     1,
+     1,
+     0,
+     2
+    ],
+    "pits": [
+     5,
+     18
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-37",
+   "player": 1,
+   "holes": [
+    2,
+    2,
+    1,
+    4,
+    2,
+    2,
+    4,
+    2,
+    5,
+    3,
+    3,
+    1
+   ],
+   "pits": [
+    15,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    4,
+    2,
+    5,
+    3,
+    3,
+    1,
+    2,
+    2,
+    1,
+    4,
+    2,
+    2,
+    2,
+    15
+   ],
+   "move": 7,
+   "expect": {
+    "holes": [
+     3,
+     0,
+     2,
+     5,
+     0,
+     3,
+     5,
+     1,
+     6,
+     0,
+     4,
+     2
+    ],
+    "pits": [
+     15,
+     2
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-38",
+   "player": 0,
+   "holes": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    1,
+    2
+   ],
+   "pits": [
+    26,
+    10
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    1,
+    1,
+    0,
+    1,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    1,
+    2,
+    26,
+    10
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     1,
+     1,
+     1,
+     2,
+     0,
+     2,
+     1,
+     0,
+     1,
+     2
+    ],
+    "pits": [
+     26,
+     10
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-opposite_empty-39",
+   "player": 1,
+   "holes": [
+    1,
+    0,
+    1,
+    3,
+    4,
+    2,
+    1,
+    3,
+    2,
+    1,
+    5,
+    1
+   ],
+   "pits": [
+    15,
+    9
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    1,
+    3,
+    2,
+    1,
+    5,
+    1,
+    1,
+    0,
+    1,
+    3,
+    4,
+    2,
+    9,
+    15
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     0,
+     1,
+     0,
+     4,
+     0,
+     3,
+     2,
+     4,
+     3,
+     0,
+     6,
+     1
+    ],
+    "pits": [
+     15,
+     9
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-opposite_empty-40",
+   "player": 0,
+   "holes": [
+    2,
+    2,
+    2,
+    0,
+    0,
+    3,
+    2,
+    1,
+    0,
+    4,
+    3,
+    1
+   ],
+   "pits": [
+    22,
+    6
+   ],
+   "turns": 0,
+   "legal_moves": [
+    0,
+    1,
+    2,
+    5
+   ],
+   "encoded": [
+    2,
+    2,
+    2,
+    0,
+    0,
+    3,
+    2,
+    1,
+    0,
+    4,
+    3,
+    1,
+    22,
+    6
+   ],
+   "move": 1,
+   "expect": {
+    "holes": [
+     2,
+     0,
+     3,
+     1,
+     0,
+     3,
+     2,
+     1,
+     0,
+     4,
+     3,
+     1
+    ],
+    "pits": [
+     22,
+     6
+    ],
+    "turn_ended": "opposite_empty",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-sowing_cap-01",
+   "player": 0,
+   "holes": [
+    0,
+    2,
+    1,
+    3,
+    3,
+    2,
+    1,
+    2,
+    1,
+    3,
+    2,
+    1
+   ],
+   "pits": [
+    23,
+    4
+   ],
+   "turns": 0,
+   "legal_moves": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "encoded": [
+    0,
+    2,
+    1,
+    3,
+    3,
+    2,
+    1,
+    2,
+    1,
+    3,
+    2,
+    1,
+    23,
+    4
+   ],
+   "move": 3,
+   "expect": {
+    "holes": [
+     3,
+     1,
+     0,
+     2,
+     3,
+     2,
+     1,
+     2,
+     1,
+     3,
+     2,
+     1
+    ],
+    "pits": [
+     23,
+     4
+    ],
+    "turn_ended": "sowing_cap",
+    "next_player": 1
+   }
+  },
+  {
+   "name": "random-sowing_cap-02",
+   "player": 1,
+   "holes": [
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    0,
+    3,
+    2,
+    0,
+    2
+   ],
+   "pits": [
+    29,
+    2
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    8,
+    9,
+    11
+   ],
+   "encoded": [
+    1,
+    0,
+    3,
+    2,
+    0,
+    2,
+    1,
+    2,
+    1,
+    2,
+    1,
+    2,
+    2,
+    29
+   ],
+   "move": 9,
+   "expect": {
+    "holes": [
+     1,
+     0,
+     3,
+     0,
+     1,
+     3,
+     1,
+     4,
+     1,
+     0,
+     1,
+     2
+    ],
+    "pits": [
+     29,
+     2
+    ],
+    "turn_ended": "sowing_cap",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-sowing_cap-03",
+   "player": 1,
+   "holes": [
+    6,
+    5,
+    4,
+    5,
+    2,
+    1,
+    5,
+    1,
+    6,
+    6,
+    3,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    5,
+    1,
+    6,
+    6,
+    3,
+    4,
+    6,
+    5,
+    4,
+    5,
+    2,
+    1,
+    0,
+    0
+   ],
+   "move": 8,
+   "expect": {
+    "holes": [
+     2,
+     1,
+     2,
+     1,
+     8,
+     4,
+     8,
+     7,
+     3,
+     0,
+     9,
+     3
+    ],
+    "pits": [
+     0,
+     0
+    ],
+    "turn_ended": "sowing_cap",
+    "next_player": 0
+   }
+  },
+  {
+   "name": "random-sowing_cap-04",
+   "player": 1,
+   "holes": [
+    2,
+    1,
+    3,
+    2,
+    4,
+    6,
+    2,
+    4,
+    3,
+    4,
+    1,
+    10
+   ],
+   "pits": [
+    3,
+    3
+   ],
+   "turns": 0,
+   "legal_moves": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "encoded": [
+    2,
+    4,
+    3,
+    4,
+    1,
+    10,
+    2,
+    1,
+    3,
+    2,
+    4,
+    6,
+    3,
+    3
+   ],
+   "move": 11,
+   "expect": {
+    "holes": [
+     16,
+     4,
+     0,
+     2,
+     1,
+     0,
+     3,
+     0,
+     7,
+     0,
+     2,
+     7
+    ],
+    "pits": [
+     3,
+     3
+    ],
+    "turn_ended": "sowing_cap",
+    "next_player": 0
+   }
+  }
+ ],
+ "end_cases": [
+  {
+   "name": "new-game-not-over",
+   "player": 0,
+   "holes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "pits": [
+    0,
+    0
+   ],
+   "turns": 0,
+   "expect": {
+    "game_over": false
+   }
+  },
+  {
+   "name": "mover-empty-other-keeps-leftovers",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    1,
+    0,
+    2,
+    0,
+    0
+   ],
+   "pits": [
+    18,
+    24
+   ],
+   "turns": 40,
+   "expect": {
+    "game_over": true,
+    "final_pits": [
+     18,
+     30
+    ],
+    "winner": 1
+   }
+  },
+  {
+   "name": "mover-empty-draw-24-24",
+   "player": 0,
+   "holes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    24,
+    22
+   ],
+   "turns": 40,
+   "expect": {
+    "game_over": true,
+    "final_pits": [
+     24,
+     24
+    ],
+    "winner": -1
+   }
+  },
+  {
+   "name": "player1-empty-player0-wins",
+   "player": 1,
+   "holes": [
+    1,
+    2,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "pits": [
+    20,
+    22
+   ],
+   "turns": 40,
+   "expect": {
+    "game_over": true,
+    "final_pits": [
+     26,
+     22
+    ],
+    "winner": 0
+   }
+  },
+  {
+   "name": "turn-cap-compares-pits-only",
+   "player": 0,
+   "holes": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "pits": [
+    25,
+    20
+   ],
+   "turns": 300,
+   "expect": {
+    "game_over": true,
+    "final_pits": [
+     25,
+     20
+    ],
+    "winner": 0
+   }
+  },
+  {
+   "name": "turn-cap-draw",
+   "player": 1,
+   "holes": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "pits": [
+    22,
+    22
+   ],
+   "turns": 300,
+   "expect": {
+    "game_over": true,
+    "final_pits": [
+     22,
+     22
+    ],
+    "winner": -1
+   }
+  },
+  {
+   "name": "one-turn-before-cap-not-over",
+   "player": 0,
+   "holes": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "pits": [
+    25,
+    20
+   ],
+   "turns": 299,
+   "expect": {
+    "game_over": false
+   }
+  }
+ ]
+}
