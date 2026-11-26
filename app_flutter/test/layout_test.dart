@@ -195,4 +195,60 @@ void main() {
       }
     });
   });
+
+    group('holeRadius and pitSize', () {
+    test(
+      'holes are round, do not touch each other and scale with the size',
+      () {
+        for (final size in sizes) {
+          final r = holeRadius(size);
+          expect(r > 0, true, reason: '$size');
+          // Neighbours in a row and holes facing each other leave a gap.
+          final side = (holeCenter(1, size) - holeCenter(0, size)).distance;
+          final across = (holeCenter(0, size) - holeCenter(11, size)).distance;
+          expect(2 * r < side, true, reason: '$size side by side');
+          expect(2 * r < across, true, reason: '$size facing each other');
+        }
+        final doubled = holeRadius(const Size(844 * 2, 390 * 2));
+        expect((doubled - 2 * holeRadius(designSize)).abs() < 1e-9, true);
+      },
+    );
+
+    test('there is room above and below every hole for its ring and pill', () {
+      for (final size in sizes) {
+        final r = holeRadius(size);
+        for (var h = 0; h < 12; h++) {
+          for (final flip in [false, true]) {
+            final c = holeCenter(h, size, flip: flip);
+            expect(
+              c.dy - holeReachFactor * r >= 0,
+              true,
+              reason: '$size hole $h above',
+            );
+            expect(
+              c.dy + holeReachFactor * r <= size.height,
+              true,
+              reason: '$size hole $h below',
+            );
+          }
+        }
+      }
+    });
+
+    test('a pit fits on the board and does not overlap the holes', () {
+      for (final size in sizes) {
+        final r = holeRadius(size);
+        final pit = pitSize(size);
+        expect(pit.height < size.height, true, reason: '$size');
+        // Pit 0 on the right: its left edge is right of hole 5 (and 6).
+        final pit0Left = pitCenter(0, size).dx - pit.width / 2;
+        expect(pit0Left > holeCenter(5, size).dx + r, true, reason: '$size');
+        // Pit 1 on the left: its right edge is left of hole 0 (and 11).
+        final pit1Right = pitCenter(1, size).dx + pit.width / 2;
+        expect(pit1Right < holeCenter(0, size).dx - r, true, reason: '$size');
+        // A pit is taller than wide, like the slots in the mockup.
+        expect(pit.height > pit.width, true, reason: '$size');
+      }
+    });
+  });
 }
