@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gebeta/ai/levels.dart';
 
-import '../../ai/ai_service.dart';
 import '../../state/game_ui_state.dart';
 import '../../state/providers.dart';
 import 'palette.dart';
