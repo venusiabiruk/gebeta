@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gebeta/ai/levels.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:gebeta/ai/ai_service.dart';
 import 'package:gebeta/app.dart' show gebetaTheme;
 import 'package:gebeta/services/settings_store.dart';
 import 'package:gebeta/services/stats_store.dart';
