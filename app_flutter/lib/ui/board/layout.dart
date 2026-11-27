@@ -1,6 +1,7 @@
+import 'dart:math' as math;
 import 'dart:ui';
 
-// Where things sit on the board (guide, section 1 "Board and indexing"). Pure functions: no Flutter widgets, so they are unit tested
+// Where things sit on the board (guide, section 1 "Board and indexing". Pure functions: no Flutter widgets, so they are unit tested
 // without a screen.
 //
 // On screen, with player 0 at the bottom:
@@ -15,10 +16,20 @@ import 'dart:ui';
 /// of whatever size they are given, so they scale from this size to any other.
 const Size designSize = Size(844, 390);
 
-// The three numbers to tune when the design is settled (U1-04).
+// The numbers to tune when the design is settled (U1-04).
 const double _pitWidthFraction = 0.12; // each pit's share of the width
 const double _topRowFraction = 0.30; // height of the top row's centers
 const double _bottomRowFraction = 0.70; // height of the bottom row's centers
+
+/// Height of a count pill, and the gap between a hole and its pill, as a
+/// fraction of the hole's radius. The pill sits outside the hole, away from the
+/// middle of the board (above the top row, below the bottom row).
+const double pillHeightFactor = 0.5;
+const double pillGapFactor = 0.3;
+
+/// How far from the center of a hole its ring and pill reach, in hole radii.
+/// The rows are placed so that this much room is left above and below them.
+const double holeReachFactor = 1 + pillGapFactor + pillHeightFactor;
 
 /// The center of [hole] (0 to 11) on a board of [size].
 ///
@@ -44,6 +55,19 @@ Offset pitCenter(int player, Size size, {bool flip = false}) {
   final x = player == 0 ? size.width - pitWidth / 2 : pitWidth / 2;
   return _place(Offset(x, size.height / 2), size, flip);
 }
+
+/// The radius of a hole on a board of [size]: the largest round hole that
+/// leaves a small gap to its neighbours in the row and in the other row.
+double holeRadius(Size size) {
+  final pitWidth = size.width * _pitWidthFraction;
+  final cellWidth = (size.width - 2 * pitWidth) / 6;
+  final rowGap = size.height * (_bottomRowFraction - _topRowFraction);
+  return math.min(cellWidth, rowGap) * 0.42;
+}
+
+/// The size of a capture pit on a board of [size] (a tall rounded slot).
+Size pitSize(Size size) =>
+    Size(size.width * _pitWidthFraction * 0.8, size.height * 0.80);
 
 /// [point] rotated by 180 degrees around the center of a board of [size].
 Offset rotate180(Offset point, Size size) =>
