@@ -1,20 +1,24 @@
-import 'package:gebeta/engine/game_state.dart';
+import 'constants.dart';
+import 'game_state.dart';
 
-// Where the mover's holes start: 0 for player 0, 6 for player 1.
-int _start(GameState state) => state.player == 0 ? 0 : 6;
-
-/// 14 integers from the mover's point of view (guide section 3):
-/// the mover's 6 holes, the opponent's 6 holes, the mover's pit, the
-/// opponent's pit. Dividing by 48 happens in the model code, not here.
+/// The position from the mover's point of view, as 14 integers:
+/// the 12 holes starting at the mover's first hole, then the mover's pit,
+/// then the opponent's pit. This is the input of the AI model.
+/// It does not divide by 48. The model code does that.
 List<int> encode(GameState state) {
-  final start = _start(state);
-  final p = state.player;
-  return [
-    for (var i = 0; i < 12; i++) state.holes[(start + i) % 12],
-    state.pits[p],
-    state.pits[1 - p],
-  ];
+  final start = state.player == 0 ? 0 : 6;
+  final result = <int>[];
+  for (var i = 0; i < holes; i++) {
+    result.add(state.holes[(start + i) % holes]);
+  }
+  result.add(state.pits[state.player]);
+  result.add(state.pits[1 - state.player]);
+  return result;
 }
 
 /// The hole number for the mover's k-th hole (k is 0 to 5).
-int decodeMove(GameState state, int k) => _start(state) + k;
+/// It does not check that the hole has seeds.
+int decodeMove(GameState state, int k) {
+  final start = state.player == 0 ? 0 : 6;
+  return start + k;
+}
