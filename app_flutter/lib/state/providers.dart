@@ -5,6 +5,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../ai/ai_service.dart';
 import '../services/saved_game_store.dart';
+import '../services/settings_store.dart';
+import '../services/sound_service.dart';
 import '../services/stats_store.dart';
 import 'game_controller.dart';
 import 'game_ui_state.dart';
@@ -29,6 +31,18 @@ final savedGameStoreProvider = Provider<SavedGameStore>(
   (ref) => SharedPreferencesSavedGameStore(
     SharedPreferences.getInstance(),
   ),
+);
+
+/// Persistent player settings.
+final settingsStoreProvider = Provider<SettingsStore>(
+  (ref) => SharedPreferencesSettingsStore(
+    SharedPreferences.getInstance(),
+  ),
+);
+
+/// Sound service. Replace the no-op implementation when audio is implemented.
+final soundServiceProvider = Provider<SoundService>(
+  (ref) => NoopSoundService(),
 );
 
 /// Main game controller.

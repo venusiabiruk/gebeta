@@ -1,6 +1,56 @@
 import '../ai/levels.dart';
 import '../services/saved_game_store.dart';
+import '../services/settings_store.dart';
 import '../services/stats_store.dart';
+
+/// In-memory settings store for tests.
+class FakeSettingsStore implements SettingsStore {
+  bool _sound = true;
+  bool _music = false;
+  bool _haptics = true;
+  AnimationSpeed _speed = AnimationSpeed.normal;
+  BoardTheme _board = BoardTheme.darkWood;
+
+  @override
+  Future<bool> soundEnabled() async => _sound;
+
+  @override
+  Future<bool> musicEnabled() async => _music;
+
+  @override
+  Future<bool> hapticsEnabled() async => _haptics;
+
+  @override
+  Future<AnimationSpeed> animationSpeed() async => _speed;
+
+  @override
+  Future<BoardTheme> boardTheme() async => _board;
+
+  @override
+  Future<void> setSoundEnabled(bool value) async {
+    _sound = value;
+  }
+
+  @override
+  Future<void> setMusicEnabled(bool value) async {
+    _music = value;
+  }
+
+  @override
+  Future<void> setHapticsEnabled(bool value) async {
+    _haptics = value;
+  }
+
+  @override
+  Future<void> setAnimationSpeed(AnimationSpeed value) async {
+    _speed = value;
+  }
+
+  @override
+  Future<void> setBoardTheme(BoardTheme value) async {
+    _board = value;
+  }
+}
 
 /// In-memory statistics store for tests.
 class FakeStatsStore implements StatsStore {
@@ -29,6 +79,11 @@ class FakeStatsStore implements StatsStore {
   Future<void> record(Level level, Outcome outcome) async {
     final levelCounts = _counts.putIfAbsent(level, () => {});
     levelCounts[outcome] = (levelCounts[outcome] ?? 0) + 1;
+  }
+
+  @override
+  Future<void> reset() async {
+    _counts.clear();
   }
 }
 

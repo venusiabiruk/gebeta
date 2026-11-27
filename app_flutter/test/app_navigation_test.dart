@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gebeta/app.dart';
 import 'package:gebeta/ui/board/board_view.dart';
-
+import 'package:gebeta/state/fakes.dart';
+import 'package:gebeta/state/providers.dart';
 void main() {
   testWidgets('splash opens home, and home reaches the other screens',
       (tester) async {
@@ -17,7 +18,16 @@ void main() {
         const FakeAccessibilityFeatures(disableAnimations: true);
     addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
 
-    await tester.pumpWidget(const ProviderScope(child: GebetaApp()));
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          statsStoreProvider.overrideWithValue(FakeStatsStore()),
+          savedGameStoreProvider.overrideWithValue(FakeSavedGameStore()),
+          settingsStoreProvider.overrideWithValue(FakeSettingsStore()),
+        ],
+        child: const GebetaApp(),
+      ),
+    );
     expect(find.text('Gebeta'), findsOneWidget); // splash
 
     await tester.pump(const Duration(milliseconds: 2000));

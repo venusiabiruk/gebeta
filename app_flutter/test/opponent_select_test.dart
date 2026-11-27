@@ -52,6 +52,7 @@ Future<ProviderContainer> openOpponentScreen(WidgetTester tester) async {
       overrides: [
         statsStoreProvider.overrideWithValue(FakeStatsStore()),
         savedGameStoreProvider.overrideWithValue(FakeSavedGameStore()),
+        settingsStoreProvider.overrideWithValue(FakeSettingsStore()),
         aiServiceProvider.overrideWithValue(ImmediateAiService()),
       ],
       child: const GebetaApp(),
@@ -61,6 +62,7 @@ Future<ProviderContainer> openOpponentScreen(WidgetTester tester) async {
   // Wait for the splash screen to finish.
   await tester.pump(const Duration(milliseconds: 1800));
   await tester.pumpAndSettle();
+   // Temporary debugging output.
 
   // Navigate to opponent selection.
   await tester.tap(find.text('Play vs Computer'));

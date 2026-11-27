@@ -48,6 +48,7 @@ Future<ProviderContainer> openHome(
         savedGameStoreProvider.overrideWithValue(
           savedStore ?? FakeSavedGameStore(),
         ),
+        settingsStoreProvider.overrideWithValue(FakeSettingsStore()),
       ],
       child: const GebetaApp(),
     ),
@@ -82,6 +83,7 @@ void main() {
           aiServiceProvider.overrideWithValue(ai),
           statsStoreProvider.overrideWithValue(FakeStatsStore()),
           savedGameStoreProvider.overrideWithValue(FakeSavedGameStore()),
+          settingsStoreProvider.overrideWithValue(FakeSettingsStore()),
         ],
         child: const GebetaApp(),
       ),
