@@ -57,7 +57,8 @@ void paintBoardBackground(Canvas canvas, Size size, BoardPalette palette) {
 ///
 /// [tappable] draws a solid ring whose width follows [pulse] (0 to 1, from the
 /// component's clock). [landing] draws the dashed ring on the hole where the
-/// last seed landed. The count pill is drawn separately (paintHolePill).
+/// last seed landed, turned by [spin] radians so that it can rotate. The count
+/// pill is drawn separately (paintHolePill).
 void paintHole(
   Canvas canvas,
   Offset center,
@@ -68,6 +69,7 @@ void paintHole(
   bool tappable = false,
   bool landing = false,
   double pulse = 0,
+  double spin = 0,
 }) {
   final rect = Rect.fromCircle(center: center, radius: radius);
 
@@ -123,6 +125,7 @@ void paintHole(
       width: radius * 0.06,
       dashed: true,
       gap: tappable ? radius * 0.17 : radius * 0.05,
+      rotation: spin,
     );
   }
 }
@@ -167,6 +170,7 @@ void paintPebble(
 /// A ring just outside a hole of [holeRadius]: solid, or dashed with rounded
 /// dashes. [width] is its thickness and [gap] the space between the hole and
 /// the ring.
+/// A dashed ring is turned by [rotation] radians.
 void paintRing(
   Canvas canvas,
   Offset center,
@@ -175,6 +179,7 @@ void paintRing(
   required double width,
   bool dashed = false,
   double? gap,
+  double rotation = 0,
 }) {
   final ringRadius = holeRadius + (gap ?? holeRadius * 0.05) + width / 2;
   final paint = Paint()
@@ -191,7 +196,7 @@ void paintRing(
   for (var i = 0; i < dashes; i++) {
     canvas.drawArc(
       rect,
-      i * 2 * math.pi / dashes,
+      rotation + i * 2 * math.pi / dashes,
       2 * math.pi / dashes * 0.5,
       false,
       paint,

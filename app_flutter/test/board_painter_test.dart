@@ -234,6 +234,32 @@ void main() {
       });
     });
 
+    testWidgets('a dashed ring turns when it is given a rotation', (
+      tester,
+    ) async {
+      await tester.runAsync(() async {
+        Future<ByteData> turned(double rotation) => render(
+              size,
+              size,
+              (canvas) => paintRing(
+                canvas,
+                center,
+                radius,
+                palettes[0].ring,
+                width: 6,
+                dashed: true,
+                rotation: rotation,
+              ),
+            );
+        final still = await turned(0);
+        // A tenth of a turn moves every dash into the gap beside it.
+        final moved = await turned(math.pi / 18);
+        expect(sameBytes(still, moved), false);
+        // The same rotation twice gives the same picture.
+        expect(sameBytes(moved, await turned(math.pi / 18)), true);
+      });
+    });
+
     testWidgets('only a tappable hole gets the solid ring', (tester) async {
       await tester.runAsync(() async {
         for (final palette in palettes) {
