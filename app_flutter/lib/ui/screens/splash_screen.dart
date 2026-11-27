@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import '../../state/settings_state.dart';
 import '../../state/providers.dart';
 import 'palette.dart';
 import 'routes.dart';
@@ -30,6 +30,11 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     } catch (e) {
       debugPrint(
           'AiService.init failed, the app goes on without the network: $e');
+    }
+    try {
+      await ref.read(settingsProvider.notifier).load();
+    } catch (e) {
+      debugPrint('Settings failed to load, the defaults are used: $e');
     }
     await minimumTime;
     if (!mounted) return;
