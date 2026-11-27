@@ -35,3 +35,8 @@ final savedGameStoreProvider = Provider<SavedGameStore>(
 final gameControllerProvider = NotifierProvider<GameController, GameUiState>(
   GameController.new,
 );
+
+/// The saved game, if there is one. Home reads it to decide about Resume.
+final savedGameProvider = FutureProvider.autoDispose<GameSnapshot?>((ref) {
+  return ref.read(savedGameStoreProvider).load();
+});

@@ -12,6 +12,11 @@ void main() {
     tester.view.devicePixelRatio = 2.0;
     addTearDown(tester.view.reset);
 
+    // Endless animations stop pumpAndSettle from finishing, so run with reduced motion.
+    tester.platformDispatcher.accessibilityFeaturesTestValue =
+        const FakeAccessibilityFeatures(disableAnimations: true);
+    addTearDown(tester.platformDispatcher.clearAccessibilityFeaturesTestValue);
+
     await tester.pumpWidget(const ProviderScope(child: GebetaApp()));
     expect(find.text('Gebeta'), findsOneWidget); // splash
 

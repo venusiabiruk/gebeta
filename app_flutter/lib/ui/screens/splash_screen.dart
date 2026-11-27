@@ -1,41 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../state/providers.dart';
 import 'palette.dart';
 import 'routes.dart';
 import 'widgets.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // TODO(U2): replace this delay with the real loading (SettingsStore, AiService.init).
-    Future<void>.delayed(const Duration(milliseconds: 1800), () {
-      if (!mounted) return;
-      Navigator.of(context).pushReplacementNamed(Routes.home);
-    });
+    _load();
+  }
+
+  /// Start the AI service and show the splash for at least 1.5 seconds.
+  /// If the AI fails to load, the app still works (Master falls back to minimax).
+  Future<void> _load() async {
+    final minimumTime =
+        Future<void>.delayed(const Duration(milliseconds: 1500));
+    try {
+      await ref.read(aiServiceProvider).init();
+    } catch (e) {
+      debugPrint(
+          'AiService.init failed, the app goes on without the network: $e');
+    }
+    await minimumTime;
+    if (!mounted) return;
+    Navigator.of(context).pushReplacementNamed(Routes.home);
   }
 
   @override
   Widget build(BuildContext context) {
+    final barTime = reduceMotion(context)
+        ? Duration.zero
+        : const Duration(milliseconds: 1500);
     return Scaffold(
       body: WoodBackground(
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                'Gebeta',
-                style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                      fontSize: 88,
-                      color: GebetaColors.gold,
-                    ),
+              Bob(
+                child: Text(
+                  'Gebeta',
+                  style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                        fontSize: 88,
+                        color: GebetaColors.gold,
+                      ),
+                ),
               ),
               const SizedBox(height: 8),
               const Text(
@@ -52,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 child: TweenAnimationBuilder<double>(
                   tween: Tween<double>(begin: 0.05, end: 1),
-                  duration: const Duration(milliseconds: 1800),
+                  duration: barTime,
                   builder: (context, value, _) => Align(
                     alignment: Alignment.centerLeft,
                     child: FractionallySizedBox(
