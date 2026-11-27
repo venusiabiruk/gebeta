@@ -1,14 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../state/game_ui_state.dart';
+import '../../state/providers.dart';
 import 'palette.dart';
 import 'routes.dart';
 import 'widgets.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
 
+  /// Open a screen. When we come back, look for a saved game again.
+  Future<void> _open(BuildContext context, WidgetRef ref, String route) async {
+    await Navigator.of(context).pushNamed(route);
+    if (!context.mounted) return;
+    ref.invalidate(savedGameProvider);
+  }
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final savedGame = ref.watch(savedGameProvider).when(
+          data: (snapshot) => snapshot,
+          loading: () => null,
+          error: (error, stack) => null,
+        );
+    final hasSavedGame = savedGame != null;
+
     return Scaffold(
       body: WoodBackground(
         child: Padding(
@@ -19,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: IconButton(
                   tooltip: 'Settings',
-                  onPressed: () => Navigator.of(context).pushNamed(Routes.settings),
+                  onPressed: () => _open(context, ref, Routes.settings),
                   icon: const Icon(Icons.settings),
                 ),
               ),
@@ -31,16 +48,24 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            'Gebeta',
-                            style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                                  fontSize: 84,
-                                  color: GebetaColors.gold,
-                                ),
+                          Bob(
+                            child: Text(
+                              'Gebeta',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displayLarge
+                                  ?.copyWith(
+                                    fontSize: 84,
+                                    color: GebetaColors.gold,
+                                  ),
+                            ),
                           ),
                           const Text(
                             'The traditional Ethiopian seed game',
-                            style: TextStyle(fontSize: 20, color: GebetaColors.cream),
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: GebetaColors.cream,
+                            ),
                           ),
                         ],
                       ),
@@ -51,22 +76,44 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          // TODO(U2): show Resume first when SavedGameStore has a game.
+                          if (savedGame != null) ...[
+                            GButton(
+                              'Resume',
+                              primary: true,
+                              shine: true,
+                              onPressed: () {
+                                ref
+                                    .read(gameControllerProvider.notifier)
+                                    .resumeGame(savedGame);
+                                _open(context, ref, Routes.game);
+                              },
+                            ),
+                            const SizedBox(height: 14),
+                          ],
                           GButton(
                             'Play vs Computer',
-                            primary: true,
-                            onPressed: () => Navigator.of(context).pushNamed(Routes.opponent),
+                            primary: !hasSavedGame,
+                            shine: !hasSavedGame,
+                            onPressed: () =>
+                                _open(context, ref, Routes.opponent),
                           ),
                           const SizedBox(height: 14),
                           GButton(
                             'Play with a Friend',
-                            // TODO(U2): call GameController.startGame(twoPlayers).
-                            onPressed: () => Navigator.of(context).pushNamed(Routes.game),
+                            onPressed: () {
+                              ref
+                                  .read(gameControllerProvider.notifier)
+                                  .startGame(
+                                    const GameConfig(mode: GameMode.twoPlayers),
+                                  );
+                              _open(context, ref, Routes.game);
+                            },
                           ),
                           const SizedBox(height: 14),
                           GButton(
                             'How to Play',
-                            onPressed: () => Navigator.of(context).pushNamed(Routes.howToPlay),
+                            onPressed: () =>
+                                _open(context, ref, Routes.howToPlay),
                           ),
                         ],
                       ),
