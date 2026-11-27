@@ -1,3 +1,37 @@
 import 'dart:math';
-/// The random number source. Tests replace it with a fixed one, for example Random(1).
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../ai/ai_service.dart';
+import '../services/saved_game_store.dart';
+import '../services/stats_store.dart';
+import 'game_controller.dart';
+import 'game_ui_state.dart';
+
+/// Random number source. Tests can replace this with a seeded generator.
 final randomProvider = Provider<Random>((ref) => Random());
+
+/// AI service used by the game.
+final aiServiceProvider = Provider<AiService>(
+  (ref) => FakeAiService(),
+);
+
+/// Persistent game statistics.
+final statsStoreProvider = Provider<StatsStore>(
+  (ref) => SharedPreferencesStatsStore(
+    SharedPreferences.getInstance(),
+  ),
+);
+
+/// Persistent saved game.
+final savedGameStoreProvider = Provider<SavedGameStore>(
+  (ref) => SharedPreferencesSavedGameStore(
+    SharedPreferences.getInstance(),
+  ),
+);
+
+/// Main game controller.
+final gameControllerProvider = NotifierProvider<GameController, GameUiState>(
+  GameController.new,
+);
