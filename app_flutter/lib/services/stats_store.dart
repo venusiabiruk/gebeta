@@ -48,6 +48,8 @@ class StatsData {
 
 /// Contract for reading and updating game statistics.
 abstract class StatsStore {
+  Future<void> reset();
+
   Future<StatsData> load();
 
   Future<int?> lastFirstPlayer();
@@ -96,6 +98,12 @@ class SharedPreferencesStatsStore implements StatsStore {
 
     final preferences = await _preferences;
     await preferences.setInt(_lastFirstPlayerKey, player);
+  }
+
+  @override
+  Future<void> reset() async {
+    final preferences = await _preferences;
+    await preferences.remove(_statsKey);
   }
 
   @override
